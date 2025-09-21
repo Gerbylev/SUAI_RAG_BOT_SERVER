@@ -1,0 +1,58 @@
+[project]
+name = "rag-server"
+version = "0.1.0"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "asyncpg>=0.30.0",
+    "fastapi>=0.115.11",
+    "graypy>=2.1.0",
+    "psycopg2-binary>=2.9.10",
+    "pydantic>=2.10.6",
+    "pyyaml>=6.0.2",
+    "sqlalchemy>=2.0.39",
+    "uvicorn>=0.34.0",
+    "yoyo-migrations>=9.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pre-commit>=4.2.0",
+    "pyright>=1.1.397",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
+    "pytest-cov>=6.0.0",
+    "pytest-html>=4.1.1",
+    "ruff>=0.11.0",
+]
+
+
+[tool.ruff]
+line-length = 160
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I"]
+ignore = ["B008"]
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+
+[tool.pytest.ini_options]
+pythonpath = ["./src", "./tests"]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+log_cli = true
+log_cli_level = "DEBUG"
+addopts = "--cov=src --cov-report=term --cov-report=html:tests/htmlcov --html=tests/pytest-report/index.html"
+
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+

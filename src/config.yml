@@ -1,0 +1,27 @@
+profile: dev
+server_host: 0.0.0.0
+server_rest_port: 5000
+
+db:
+  host: localhost
+  port: 5432
+  database: rag_server
+  username:
+  password:
+  migrations: ./migrations
+
+logging:
+  app_name: rag_server
+  graylog:
+    enabled: false
+    host: localhost
+    port: 12201
+    udp: true
+  console:
+    enabled: true
+  root_level: INFO
+  levels:
+    httpx: WARN
+    openai: WARN
+    uvicorn.access: WARN
+    VastController: DEBUG
