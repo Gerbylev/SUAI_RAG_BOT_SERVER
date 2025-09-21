@@ -21,12 +21,12 @@ engine = create_async_engine(url=f"postgresql+asyncpg://{db_config.username}:{db
 session_factory = async_sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
 
-def get_db_session():
+async def get_db_session():
     db_session = session_factory()
     try:
         yield db_session
     finally:
-        db_session.close()
+        await db_session.close()
 
 
 def get_db_session_context() -> int:
@@ -38,7 +38,7 @@ def get_db_session_context() -> int:
     return session_id
 
 
-def set_db_session_context(*, session_id: int) -> None:
+def set_db_session_context(*, session_id: Optional[int]) -> None:
     db_session_context.set(session_id)
 
 

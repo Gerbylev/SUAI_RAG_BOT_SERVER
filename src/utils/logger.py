@@ -4,6 +4,7 @@ import sys
 
 import graypy  # type: ignore
 from graypy.handler import BaseGELFHandler  # type: ignore
+from logging_loki import LokiHandler  # type: ignore
 
 from utils.config import CONFIG
 
@@ -11,6 +12,13 @@ request_id_var = contextvars.ContextVar("request_id", default=0)
 
 
 class GraylogFormatter(logging.Formatter):
+    def format(self, record: logging.LogRecord):
+        record.app_name = CONFIG.logging.app_name
+        record.request_id = request_id_var.get()
+        return super().format(record)
+
+
+class GrafanaFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord):
         record.app_name = CONFIG.logging.app_name
         record.request_id = request_id_var.get()
@@ -26,6 +34,25 @@ if CONFIG.logging.graylog.enabled:
 
     graylog_formatter = GraylogFormatter("[%(name)s]: %(message)s")
     graylog_handler.setFormatter(graylog_formatter)  # type: ignore
+
+grafana_handler: LokiHandler | None = None  # type: ignore
+if CONFIG.logging.grafana.enabled:
+    labels = dict(CONFIG.logging.grafana.labels)
+    labels["request_id"] = str(request_id_var.get())
+
+    auth = None
+    if CONFIG.logging.grafana.username and CONFIG.logging.grafana.password:
+        auth = (CONFIG.logging.grafana.username, CONFIG.logging.grafana.password)
+
+    grafana_handler = LokiHandler(
+        url=CONFIG.logging.grafana.url,
+        tags=labels,
+        auth=auth,
+        version="1"
+    )
+
+    grafana_formatter = GrafanaFormatter("[%(name)s]: %(message)s")
+    grafana_handler.setFormatter(grafana_formatter)  # type: ignore
 
 console_handler: logging.StreamHandler | None = None  # type: ignore
 if CONFIG.logging.console.enabled:
@@ -53,6 +80,9 @@ def get_logger(name: str) -> logging.Logger:
     if graylog_handler:
         logger.addHandler(graylog_handler)  # type: ignore
 
+    if grafana_handler:
+        logger.addHandler(grafana_handler)  # type: ignore
+
     return logger
 
 
@@ -75,4 +105,9 @@ def get_logger_univorn():
             "()": lambda: graylog_handler,  # type: ignore
         }
         logging_config["root"]["handlers"].append("graylog")  # type: ignore
+    if CONFIG.logging.grafana.enabled:
+        logging_config["handlers"]["grafana"] = {  # type: ignore
+            "()": lambda: grafana_handler,  # type: ignore
+        }
+        logging_config["root"]["handlers"].append("grafana")  # type: ignore
     return logging_config

@@ -7,13 +7,8 @@ from asyncio import AbstractEventLoop
 import psycopg2
 import uvicorn
 import yoyo
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.middleware.cors import CORSMiddleware
 
 import app_init
-import endpoints.routers.init_router  # noqa
-from db.middleware import db_session_middleware_function
-
 from utils.config import CONFIG
 from utils.logger import get_logger, get_logger_univorn
 from utils.shutdown import GLOBAL_SHUTDOWN_EVENT
@@ -24,22 +19,11 @@ log = get_logger("Main")
 class Main:
     def __init__(self):
         self.app = app_init.app
-        self.__create_services()
         self.shutdown_event = GLOBAL_SHUTDOWN_EVENT
         self.uvicorn_start_thread: threading.Thread | None = None
         self.asyncio_thread: threading.Thread | None = None
         self.rest_server: uvicorn.Server | None = None
         self.event_loop: AbstractEventLoop | None = None
-
-    def __create_services(self):
-        self.app.add_middleware(
-            CORSMiddleware,
-            allow_origins=["*"],
-            allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
-        )
-        self.app.add_middleware(BaseHTTPMiddleware, dispatch=db_session_middleware_function)
 
     def start(self):
         signal.signal(signal.SIGINT, self.handle_shutdown)
@@ -52,8 +36,6 @@ class Main:
 
         self.start_event_loop()
 
-        self.__create_services()
-
         print("Starting http server ...")
         self.start_rest_server()
 
@@ -62,7 +44,8 @@ class Main:
 
     def start_event_loop(self):
         def run():
-            self.event_loop.run_forever()
+            if self.event_loop:
+                self.event_loop.run_forever()
 
         self.event_loop = asyncio.new_event_loop()
         self.asyncio_thread = threading.Thread(target=run)
@@ -114,15 +97,11 @@ class Main:
 
     @staticmethod
     def run_migrations():
-        # Укажите здесь строку подключения к базе данных
         db_url = f"postgresql://{CONFIG.db.username}:{CONFIG.db.password}@{CONFIG.db.host}:{CONFIG.db.port}/{CONFIG.db.database}"
 
-        # Получаем backend для работы с базой данных
         backend = yoyo.get_backend(db_url)
 
-        # Указываем путь к директории с миграциями
         migrations = yoyo.read_migrations(CONFIG.db.migrations)
 
-        # Применяем миграции
-        with backend.lock():  # Захват блокировки на выполнение миграций
+        with backend.lock():
             backend.apply_migrations(backend.to_apply(migrations))

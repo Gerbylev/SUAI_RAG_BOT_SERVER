@@ -1,9 +1,9 @@
-from db.session import get_session_or_create
 from typing import TypeVar
 
 from sqlalchemy import text
 from sqlalchemy.orm import declarative_base
 
+from db.session import get_session_or_create
 from utils.config import CONFIG
 
 Base = declarative_base()

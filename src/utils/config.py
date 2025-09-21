@@ -21,6 +21,15 @@ class LoggingConfigGraylog:
 
 
 @dataclass
+class LoggingConfigGrafana:
+    enabled: bool
+    url: str
+    username: str
+    password: str
+    labels: dict[str, str]
+
+
+@dataclass
 class LoggingConfigConsole:
     enabled: bool
 
@@ -29,6 +38,7 @@ class LoggingConfigConsole:
 class LoggingConfig:
     console: LoggingConfigConsole
     graylog: LoggingConfigGraylog
+    grafana: LoggingConfigGrafana
     app_name: str
     root_level: str
     levels: dict[str, str]

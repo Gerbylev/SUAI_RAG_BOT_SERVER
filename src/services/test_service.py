@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from db.transaction import transactional
 from dao.group import Group
+from db.transaction import transactional
 from endpoints.models.test_data import TestRequest
 
 
