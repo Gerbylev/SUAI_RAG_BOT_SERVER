@@ -104,3 +104,7 @@ src/
 - Используется `uv` для управления зависимостями
 - Зависимости описаны в `pyproject.toml`
 - Разделение на основные зависимости и dev-зависимости
+
+## Other recommendations
+
+- Do not generate .MD files when not asked to do that.

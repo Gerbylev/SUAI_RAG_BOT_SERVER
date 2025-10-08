@@ -8,6 +8,7 @@ from aiogram.enums import ChatAction
 from utils.config import CONFIG
 from utils.logger import get_logger
 from services.gpt_service import gpt_service
+from agent.service import agent_service
 
 log = get_logger("TelegramService")
 
@@ -40,7 +41,8 @@ class TelegramService:
                 try:
                     await self.bot.send_chat_action(chat_id=message.chat.id, action=ChatAction.TYPING)
 
-                    response = await gpt_service.chat(message.text)
+                    user_id = str(message.from_user.id)
+                    response = await agent_service.process_message(user_id, message.text)
 
                     await message.answer(response)
 
