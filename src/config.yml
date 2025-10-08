@@ -20,6 +20,16 @@ gpt:
   model: ""
   base_url: ""
 
+qdrant:
+  host: "localhost"
+  port: 6333
+  api_key: ""
+
+embeddings:
+  model: "text-embedding-3-small"
+  base_url: "https://caila.io/api/adapters/openai"
+  api_key: ""
+
 logging:
   app_name: rag_server
   graylog:

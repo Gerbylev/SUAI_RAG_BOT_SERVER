@@ -69,6 +69,20 @@ class ConfigGPT:
 
 
 @dataclass
+class ConfigQdrant:
+    host: str
+    port: int
+    api_key: str
+
+
+@dataclass
+class ConfigEmbeddings:
+    model: str
+    base_url: str
+    api_key: str
+
+
+@dataclass
 class Config:
     profile: str
     server_host: str
@@ -77,6 +91,8 @@ class Config:
     db: ConfigDB
     telegram: ConfigTelegram
     gpt: ConfigGPT
+    qdrant: ConfigQdrant
+    embeddings: ConfigEmbeddings
 
 
 class ConfigLoader:
