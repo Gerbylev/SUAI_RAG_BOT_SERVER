@@ -5,6 +5,7 @@ from fastapi import Request, Response
 from fastapi import status as HTTPStatus
 
 from utils.logger import request_id_var
+
 from .session import AsyncScopedSession, set_db_session_context
 
 

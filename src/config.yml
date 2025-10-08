@@ -10,6 +10,16 @@ db:
   password:
   migrations: ./migrations
 
+telegram:
+  enabled: false
+  bot_token: ""
+  mode: "polling"  # "polling" или "webhook"
+
+gpt:
+  api_key: ""
+  model: ""
+  base_url: ""
+
 logging:
   app_name: rag_server
   graylog:

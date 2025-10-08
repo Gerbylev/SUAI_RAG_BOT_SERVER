@@ -9,6 +9,7 @@ import uvicorn
 import yoyo
 
 import app_init
+from services.telegram_service import telegram_service
 from utils.config import CONFIG
 from utils.logger import get_logger, get_logger_univorn
 from utils.shutdown import GLOBAL_SHUTDOWN_EVENT
@@ -52,13 +53,27 @@ class Main:
         self.asyncio_thread.start()
         asyncio.set_event_loop(self.event_loop)
 
+        # Запускаем Telegram бот в event loop
+        if CONFIG.telegram.enabled:
+            print("Starting Telegram bot...")
+            asyncio.run_coroutine_threadsafe(telegram_service.start(), self.event_loop)
+
     def wait_until_shutdown(self):
         while not self.shutdown_event.is_set():
             self.shutdown_event.wait()
         print("Shutting down servers gracefully...")
+
+        if CONFIG.telegram.enabled:
+            print("Stopping Telegram bot...")
+            future = asyncio.run_coroutine_threadsafe(telegram_service.stop(), self.event_loop)
+            try:
+                future.result(timeout=30)
+                print("Telegram bot stopped successfully")
+            except Exception as e:
+                print(f"Error stopping Telegram bot: {e}")
+
         self.rest_server.should_exit = True
         self.uvicorn_start_thread.join()
-
 
         self.event_loop.call_soon_threadsafe(self.event_loop.stop)
         self.asyncio_thread.join()

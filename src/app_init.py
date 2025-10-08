@@ -4,8 +4,8 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
 from db.middleware import db_session_middleware_function, request_id_middleware_function
-from endpoints.routers.groups_router import groups_routes
 from endpoints.routers.system_router import system_routes
+from endpoints.routers.telegram_router import telegram_routes
 
 app = FastAPI(title="Synopsis-server", description="Synopsis-server", version="0.0.1")
 
@@ -20,7 +20,7 @@ app.add_middleware(BaseHTTPMiddleware, dispatch=db_session_middleware_function)
 app.add_middleware(BaseHTTPMiddleware, dispatch=request_id_middleware_function)
 
 app.include_router(system_routes)
-app.include_router(groups_routes)
+app.include_router(telegram_routes)
 
 
 

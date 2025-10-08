@@ -53,6 +53,21 @@ class ConfigDB:
     password: str
     migrations: str
 
+
+@dataclass
+class ConfigTelegram:
+    enabled: bool
+    bot_token: str
+    mode: str  # "polling" или "webhook"
+
+
+@dataclass
+class ConfigGPT:
+    api_key: str
+    model: str
+    base_url: str
+
+
 @dataclass
 class Config:
     profile: str
@@ -60,6 +75,8 @@ class Config:
     server_rest_port: int
     logging: LoggingConfig
     db: ConfigDB
+    telegram: ConfigTelegram
+    gpt: ConfigGPT
 
 
 class ConfigLoader:
