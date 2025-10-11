@@ -1,6 +1,13 @@
 [project]
 name = "rag-server"
-version = "0.1.0"
+dynamic = ["version"]
+description = "SGR RAG Agent"
+readme = "README.md"
+authors = [
+    {name = "Gerbylev"},
+]
+keywords = ["ai", "RAG", "reasoning", "schema-guided", "openai"]
+
 requires-python = ">=3.13,<4.0"
 dependencies = [
     "aiogram>=3.17.0",
@@ -9,6 +16,7 @@ dependencies = [
     "fastapi>=0.115.11",
     "graypy>=2.1.0",
     "httpx>=0.28.1",
+    "jinja2>=3.1.0",
     "langchain-core>=0.3.36",
     "langchain-openai>=0.3.11",
     "langgraph>=0.6.9",
@@ -23,6 +31,9 @@ dependencies = [
     "uvicorn>=0.34.0",
     "yoyo-migrations>=9.0.0",
 ]
+
+[project.urls]
+TGBOT = "https://t.me/rag_agent_by_suai_bot"
 
 [dependency-groups]
 dev = [

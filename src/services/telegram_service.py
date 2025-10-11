@@ -8,7 +8,7 @@ from aiogram.enums import ChatAction
 from utils.config import CONFIG
 from utils.logger import get_logger
 from services.gpt_service import gpt_service
-from agent.service import agent_service
+from core.service import agent_service
 
 log = get_logger("TelegramService")
 

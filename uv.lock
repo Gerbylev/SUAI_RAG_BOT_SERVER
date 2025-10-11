@@ -1383,7 +1383,6 @@ wheels = [
 
 [[package]]
 name = "rag-server"
-version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "aiogram" },
@@ -1392,6 +1391,7 @@ dependencies = [
     { name = "fastapi" },
     { name = "graypy" },
     { name = "httpx" },
+    { name = "jinja2" },
     { name = "langchain-core" },
     { name = "langchain-openai" },
     { name = "langgraph" },
@@ -1427,6 +1427,7 @@ requires-dist = [
     { name = "fastapi", specifier = ">=0.115.11" },
     { name = "graypy", specifier = ">=2.1.0" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "jinja2", specifier = ">=3.1.0" },
     { name = "langchain-core", specifier = ">=0.3.36" },
     { name = "langchain-openai", specifier = ">=0.3.11" },
     { name = "langgraph", specifier = ">=0.6.9" },

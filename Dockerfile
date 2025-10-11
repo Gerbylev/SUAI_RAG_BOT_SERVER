@@ -1,4 +1,3 @@
-# Build stage - для установки зависимостей, тестов и линтинга
 FROM python:3.13.2-bookworm as builder
 
 WORKDIR /app
