@@ -83,6 +83,52 @@ class ConfigEmbeddings:
 
 
 @dataclass
+class ConfigOpenAI:
+    base_url: str
+    api_key: str
+    proxy: str
+    model: str
+    max_tokens: int
+    temperature: float
+
+    def model_dump(self, exclude: set[str] | None = None) -> dict:
+        """Pydantic-like model_dump method for compatibility with src/core code."""
+        exclude = exclude or set()
+        result = {}
+        for field in ["base_url", "api_key", "proxy", "model", "max_tokens", "temperature"]:
+            if field not in exclude:
+                result[field] = getattr(self, field)
+        return result
+
+
+@dataclass
+class ConfigPrompts:
+    prompts_dir: str
+    system_prompt_file: str
+
+
+@dataclass
+class ConfigExecution:
+    logs_dir: str
+    reports_dir: str
+
+
+@dataclass
+class ConfigSearch:
+    max_results: int
+
+
+@dataclass
+class ConfigMCP:
+    context_limit: int
+
+
+@dataclass
+class ConfigScraping:
+    content_limit: int
+
+
+@dataclass
 class Config:
     profile: str
     server_host: str
@@ -93,6 +139,12 @@ class Config:
     gpt: ConfigGPT
     qdrant: ConfigQdrant
     embeddings: ConfigEmbeddings
+    openai: ConfigOpenAI
+    prompts: ConfigPrompts
+    execution: ConfigExecution
+    search: ConfigSearch
+    mcp: ConfigMCP
+    scraping: ConfigScraping
 
 
 class ConfigLoader:

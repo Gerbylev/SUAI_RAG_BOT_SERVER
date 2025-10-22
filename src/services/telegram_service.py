@@ -2,13 +2,12 @@ import asyncio
 from typing import Awaitable, Callable
 
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message, Update
 from aiogram.enums import ChatAction
+from aiogram.types import Message, Update
 
+from core.service import agent_service
 from utils.config import CONFIG
 from utils.logger import get_logger
-from services.gpt_service import gpt_service
-from core.service import agent_service
 
 log = get_logger("TelegramService")
 
@@ -58,7 +57,7 @@ class TelegramService:
             log.info("Telegram bot started in polling mode")
         elif CONFIG.telegram.mode == "webhook":
             log.info("Telegram bot started in webhook mode")
-            raise NotImplemented # TODO Implement
+            raise NotImplementedError  # TODO Implement
         else:
             log.error(f"Unknown Telegram mode: {CONFIG.telegram.mode}")
 
@@ -70,7 +69,6 @@ class TelegramService:
             log.info("Telegram polling cancelled")
         except Exception as e:
             log.error(f"Error in Telegram polling: {e}", exc_info=True)
-
 
     async def stop(self):
         log.info("Stopping Telegram bot...")

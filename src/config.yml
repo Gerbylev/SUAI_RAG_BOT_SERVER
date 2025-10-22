@@ -30,6 +30,31 @@ embeddings:
   base_url: "https://caila.io/api/adapters/openai"
   api_key: ""
 
+openai:
+  base_url: "https://api.openai.com/v1"
+  api_key: ""
+  proxy: ""
+  model: "gpt-4o-mini"
+  max_tokens: 16000
+  temperature: 0.0
+
+prompts:
+  prompts_dir: "prompts"
+  system_prompt_file: "system_prompt.txt"
+
+execution:
+  logs_dir: "./logs"
+  reports_dir: "./reports"
+
+search:
+  max_results: 5
+
+mcp:
+  context_limit: 10000
+
+scraping:
+  content_limit: 5000
+
 logging:
   app_name: rag_server
   graylog:

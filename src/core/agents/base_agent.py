@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 import traceback
 import uuid
@@ -10,23 +9,35 @@ import httpx
 from openai import AsyncOpenAI
 from openai.types.chat import ChatCompletionFunctionToolParam
 
-
-from core.models import AgentStatesEnum
+from core.models import AgentStatesEnum, ResearchContext
+from core.prompts import PromptLoader
 from core.stream import OpenAIStreamingGenerator
+from core.tools import (
+    # Base
+    BaseTool,
+    ClarificationTool,
+    ReasoningTool,
+    system_agent_tools,
+)
+from utils.config import CONFIG
+from utils.logger import get_logger
 
 
 class BaseAgent:
+    """Base class for agents."""
+
     name: str = "base_agent"
 
     def __init__(
         self,
         task: str,
         toolkit: list[Type[BaseTool]] | None = None,
-        max_iterations: int = 10,
+        max_iterations: int = 20,
         max_clarifications: int = 3,
     ):
         self.id = f"{self.name}_{uuid.uuid4()}"
-        self.logger = logging.getLogger(f"{self.id}")
+        self.logger = get_logger(f"core.agents.{self.name}")
+        self.creation_time = datetime.now()
         self.task = task
         self.toolkit = [*system_agent_tools, *(toolkit or [])]
 
@@ -36,14 +47,16 @@ class BaseAgent:
         self.max_iterations = max_iterations
         self.max_clarifications = max_clarifications
 
-        client_kwargs = {"base_url": config.openai.base_url, "api_key": config.openai.api_key}
+        client_kwargs = {"base_url": CONFIG.openai.base_url, "api_key": CONFIG.openai.api_key}
+        if CONFIG.openai.proxy.strip():
+            client_kwargs["http_client"] = httpx.AsyncClient(proxy=CONFIG.openai.proxy)
 
         self.openai_client = AsyncOpenAI(**client_kwargs)
         self.streaming_generator = OpenAIStreamingGenerator(model=self.id)
 
     async def provide_clarification(self, clarifications: str):
         """Receive clarification from external source (e.g. user input)"""
-        self.conversation.append({"role": "user", "content": f"CLARIFICATIONS: {clarifications}"})
+        self.conversation.append({"role": "user", "content": PromptLoader.get_clarification_template(clarifications)})
         self._context.clarifications_used += 1
         self._context.clarification_received.set()
         self._context.state = AgentStatesEnum.RESEARCHING
@@ -53,18 +66,18 @@ class BaseAgent:
         next_step = result.remaining_steps[0] if result.remaining_steps else "Completing"
         self.logger.info(
             f"""
-###############################################
-🤖 LLM RESPONSE DEBUG:
-   🧠 Reasoning Steps: {result.reasoning_steps}
-   📊 Current Situation: '{result.current_situation[:400]}...'
-   📋 Plan Status: '{result.plan_status[:400]}...'
-   🔍 Searches Done: {self._context.searches_used}
-   🔍 Clarifications Done: {self._context.clarifications_used}
-   ✅ Enough Data: {result.enough_data}
-   📝 Remaining Steps: {result.remaining_steps}
-   🏁 Task Completed: {result.task_completed}
-   ➡️ Next Step: {next_step}
-###############################################"""
+    ###############################################
+    🤖 LLM RESPONSE DEBUG:
+       🧠 Reasoning Steps: {result.reasoning_steps}
+       📊 Current Situation: '{result.current_situation[:400]}...'
+       📋 Plan Status: '{result.plan_status[:400]}...'
+       🔍 Searches Done: {self._context.searches_used}
+       🔍 Clarifications Done: {self._context.clarifications_used}
+       ✅ Enough Data: {result.enough_data}
+       📝 Remaining Steps: {result.remaining_steps}
+       🏁 Task Completed: {result.task_completed}
+       ➡️ Next Step: {next_step}
+    ###############################################"""
         )
         self.log.append(
             {
@@ -80,8 +93,9 @@ class BaseAgent:
             f"""
 ###############################################
 🛠️ TOOL EXECUTION DEBUG:
-   🔧 Tool Name: {tool.tool_name}
-   📋 Tool Model: {tool.model_dump_json(indent=2)}
+    🔧 Tool Name: {tool.tool_name}
+    📋 Tool Model: {tool.model_dump_json(indent=2)}
+    🔍 Result: '{result[:400]}...'
 ###############################################"""
         )
         self.log.append(
@@ -96,13 +110,14 @@ class BaseAgent:
         )
 
     def _save_agent_log(self):
-        logs_dir = config.execution.logs_dir
+        logs_dir = CONFIG.execution.logs_dir
         os.makedirs(logs_dir, exist_ok=True)
         filepath = os.path.join(logs_dir, f"{datetime.now().strftime('%Y%m%d-%H%M%S')}-{self.id}-log.json")
         agent_log = {
             "id": self.id,
-            "model_config": config.openai.model_dump(exclude={"api_key", "proxy"}),
+            "model_config": CONFIG.openai.model_dump(exclude={"api_key", "proxy"}),
             "task": self.task,
+            "toolkit": [tool.tool_name for tool in self.toolkit],
             "log": self.log,
         }
 
@@ -110,11 +125,10 @@ class BaseAgent:
 
     async def _prepare_context(self) -> list[dict]:
         """Prepare conversation context with system prompt."""
-        system_prompt = PromptLoader.get_system_prompt(
-            sources=list(self._context.sources.values()),
-            available_tools=self.toolkit,
-        )
-        return [{"role": "system", "content": system_prompt}, *self.conversation]
+        return [
+            {"role": "system", "content": PromptLoader.get_system_prompt(self.toolkit)},
+            *self.conversation,
+        ]
 
     async def _prepare_tools(self) -> list[ChatCompletionFunctionToolParam]:
         """Prepare available tools for current agent state and progress."""
@@ -146,7 +160,7 @@ class BaseAgent:
             [
                 {
                     "role": "user",
-                    "content": f"\nORIGINAL USER REQUEST: '{self.task}'\n",
+                    "content": PromptLoader.get_initial_user_request(self.task),
                 }
             ]
         )
@@ -158,11 +172,10 @@ class BaseAgent:
                 reasoning = await self._reasoning_phase()
                 self._context.current_step_reasoning = reasoning
                 action_tool = await self._select_action_phase(reasoning)
-                action_result = await self._action_phase(action_tool)
+                await self._action_phase(action_tool)
 
                 if isinstance(action_tool, ClarificationTool):
                     self.logger.info("\n⏸️  Research paused - please answer questions")
-                    self.logger.info(action_result)
                     self._context.state = AgentStatesEnum.WAITING_FOR_CLARIFICATION
                     self._context.clarification_received.clear()
                     await self._context.clarification_received.wait()

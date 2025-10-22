@@ -13,12 +13,12 @@ class StreamingGenerator:
         self.queue.put_nowait(data)
 
     def finish(self):
-        self.queue.put_nowait(None)
+        self.queue.put_nowait(None)  # Завершающий сигнал
 
     async def stream(self):
         while True:
             data = await self.queue.get()
-            if data is None:
+            if data is None:  # Завершающий символ
                 break
             yield data
 

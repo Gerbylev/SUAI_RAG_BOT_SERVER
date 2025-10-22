@@ -1,79 +1,45 @@
+import os
 from datetime import datetime
 from functools import cache
-from pathlib import Path
-from typing import Any
 
-import yaml
-from jinja2 import Template
-
-from core.models import SourceData
-from core.tools.base import BaseTool
+from core.tools import BaseTool
+from utils.config import CONFIG
 
 
 class PromptLoader:
-
-    @classmethod
-    def _get_prompts_dir(cls) -> Path:
-        return Path(__file__).parent / "prompts"
-
     @classmethod
     @cache
-    def _load_yaml_prompts(cls) -> dict[str, Any]:
-        prompts_file = cls._get_prompts_dir() / "system_prompts.yml"
+    def _load_prompt_file(cls, filename: str) -> str:
+        user_file_path = os.path.join(CONFIG.prompts.prompts_dir, filename)
+        lib_file_path = os.path.join(os.path.dirname(__file__), "..", CONFIG.prompts.prompts_dir, filename)
 
-        if not prompts_file.exists():
-            raise FileNotFoundError(f"Prompts file not found: {prompts_file}")
+        for file_path in [user_file_path, lib_file_path]:
+            if os.path.exists(file_path):
+                try:
+                    with open(file_path, encoding="utf-8") as f:
+                        return f.read().strip()
+                except IOError as e:
+                    raise IOError(f"Error reading prompt file {file_path}: {e}") from e
 
-        try:
-            with open(prompts_file, encoding="utf-8") as f:
-                data = yaml.safe_load(f)
-                if not data:
-                    raise ValueError("Prompts YAML file is empty")
-                return data
-        except yaml.YAMLError as e:
-            raise ValueError(f"Error parsing YAML file {prompts_file}: {e}") from e
-        except IOError as e:
-            raise IOError(f"Error reading prompts file {prompts_file}: {e}") from e
+        raise FileNotFoundError(f"Prompt file not found: {user_file_path} or {lib_file_path}")
 
     @classmethod
-    def _prepare_tools_data(cls, available_tools: list[BaseTool]) -> list[dict[str, str]]:
-        return [{"name": tool.tool_name, "description": tool.description} for tool in available_tools]
+    def get_system_prompt(cls, available_tools: list[BaseTool]) -> str:
+        template = cls._load_prompt_file(CONFIG.prompts.system_prompt_file)
+        available_tools_str_list = [f"{i}. {tool.tool_name}: {tool.description}" for i, tool in enumerate(available_tools, start=1)]
+        try:
+            return template.format(
+                available_tools="\n".join(available_tools_str_list),
+            )
+        except KeyError as e:
+            raise KeyError(f"Missing placeholder in system prompt template: {e}") from e
 
     @classmethod
-    def get_system_prompt(cls, sources: list[SourceData], available_tools: list[BaseTool]) -> str:
-        prompts_data = cls._load_yaml_prompts()
-
-        system_prompt_template = prompts_data.get("system_prompt")
-        if not system_prompt_template:
-            raise ValueError("system_prompt not found in YAML file")
-
-        tools_data = cls._prepare_tools_data(available_tools)
-
-        context = {
-            "current_date": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
-            "date_format": "d-m-Y HH:MM:SS",
-            "available_tools": tools_data,
-            "sources": sources,
-        }
-
-        try:
-            template = Template(system_prompt_template)
-            result = template.render(**context)
-            return result.strip()
-        except Exception as e:
-            raise RuntimeError(f"Error rendering system prompt template: {e}") from e
+    def get_initial_user_request(cls, task: str) -> str:
+        template = cls._load_prompt_file("initial_user_request.txt")
+        return template.format(task=task, current_date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     @classmethod
-    def get_custom_prompt(cls, prompt_name: str, **kwargs) -> str:
-        prompts_data = cls._load_yaml_prompts()
-
-        prompt_template = prompts_data.get(prompt_name)
-        if not prompt_template:
-            raise ValueError(f"Prompt '{prompt_name}' not found in YAML file")
-
-        try:
-            template = Template(prompt_template)
-            result = template.render(**kwargs)
-            return result.strip()
-        except Exception as e:
-            raise RuntimeError(f"Error rendering prompt '{prompt_name}': {e}") from e
+    def get_clarification_template(cls, clarifications: str) -> str:
+        template = cls._load_prompt_file("clarification_response.txt")
+        return template.format(clarifications=clarifications, current_date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))

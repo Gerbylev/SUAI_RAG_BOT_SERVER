@@ -1,13 +1,10 @@
 from typing import Literal, Type
 
-from sgr_deep_research.core.agents.sgr_tools_agent import SGRToolCallingResearchAgent
-from sgr_deep_research.core.tools import BaseTool
+from core.agents.sgr_tools_agent import SGRToolCallingResearchAgent
+from core.tools import BaseTool
 
 
 class SGRAutoToolCallingResearchAgent(SGRToolCallingResearchAgent):
-    """SGR Tool Calling Research Agent variation for benchmark with automatic
-    tool selection."""
-
     name: str = "sgr_auto_tool_calling_agent"
 
     def __init__(
