@@ -73,7 +73,7 @@ def process_docx_directory(directory_path):
 if __name__ == "__main__":
     directory_path = r'C:\Users\Евгения\OneDrive\Desktop\downloaded_files'
 
-    output_json = r'C:\Users\Евгения\OneDrive\Desktop\Универ\Курсовая\scrapy_parse\out_spider\out_spider\spiders\parsed_docx.json'
+    output_json = r'C:\Users\Евгения\SUAI_RAG_BOT_SERVER\parser\out_spider\spiders\parsed_docx.json'
 
     text_data = process_docx_directory(directory_path)
 
