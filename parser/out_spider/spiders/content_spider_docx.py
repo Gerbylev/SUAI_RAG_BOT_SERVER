@@ -2,6 +2,9 @@ import os
 import json
 from docx_parser import DocumentParser
 from docx import Document
+import requests
+from io import BytesIO
+
 
 # Основной метод для извлечения текста из документа
 def extract_text_from_docx(file_path):
@@ -33,7 +36,6 @@ def extract_table_data(docx_path):
     doc = Document(docx_path)
     table_data = []
 
-    # Проходим по всем таблицам в документе
     for table in doc.tables:
         for row in table.rows:
             row_data = []
@@ -43,45 +45,68 @@ def extract_table_data(docx_path):
 
                 # Если в ячейке несколько строк, например, во втором столбце
                 if '\n' in cell_text:
-                    # Разделяем строки по символу новой строки
                     cell_text = " ".join(cell_text.split('\n')).strip()
 
                 row_data.append(cell_text)
-
             table_data.append(row_data)
 
     return table_data
 
-def process_docx_directory(directory_path):
+# Функция для скачивания документа по URL
+def download_docx(url):
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Проверка на ошибки HTTP
+        docx_file = BytesIO(response.content)  # Сохраняем контент в байтовый поток
+        return docx_file
+    except Exception as e:
+        print(f"Ошибка при скачивании {url}: {e}")
+        return None
+
+
+# Основной процесс для обработки списка ссылок
+def process_docx_links(links):
     result = {}
 
-    # Ищем все DOCX файлы
-    docx_files = [f for f in os.listdir(directory_path)
-                  if f.lower().endswith('.docx')]
+    for url in links:
+        if not url.lower().endswith('.docx'):
+            continue
 
-    for filename in docx_files:
-        file_path = os.path.join(directory_path, filename)
-        print(f"Обрабатывается: {filename}")
+        print(f"Обрабатывается: {url}")
 
-        # Извлекаем текст
-        text_content = extract_text_from_docx(file_path)
-        result[filename] = text_content
+        # Скачиваем документ
+        docx_file = download_docx(url)
+        if docx_file:
+            # Извлекаем текст
+            text_content = extract_text_from_docx(docx_file)
+            result[url] = text_content
 
     return result
 
+# Сохранение данных в JSON файл
+def save_to_json(data, filename='parsed_docx.json'):
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+# Чтение списка ссылок из файла
+def read_links_from_file(filename):
+    with open(filename, 'r') as file:
+        links = file.readlines()
+    return [link.strip() for link in links]
 
 if __name__ == "__main__":
-    directory_path = r'C:\Users\Евгения\OneDrive\Desktop\downloaded_files'
+    links = read_links_from_file('parser\out_spider\spiders\links.csv')
 
-    output_json = r'C:\Users\Евгения\SUAI_RAG_BOT_SERVER\parser\out_spider\spiders\parsed_docx.json'
+    parsed_data = process_docx_links(links)
 
-    text_data = process_docx_directory(directory_path)
-
-    with open(output_json, 'w', encoding='utf-8') as f:
-        json.dump(text_data, f, ensure_ascii=False, indent=2)
+    output_json = 'parsed_docx.json'
+    save_to_json(parsed_data, output_json)
 
     # Статистика
-    total_files = len(text_data)
-    total_text_elements = sum(len(texts) for texts in text_data.values())
-    print(f"Обработано файлов: {total_files}")
+    total_files = len(parsed_data)
+    total_text_elements = sum(len(texts) for texts in parsed_data.values())
+    print(f"Обработано ссылок: {total_files}")
     print(f"Всего текстовых элементов: {total_text_elements}")

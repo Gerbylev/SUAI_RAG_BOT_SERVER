@@ -10,7 +10,7 @@ import requests
 class LinkParserSpider(scrapy.Spider):
     name = 'link_parser'
     start_urls = []
-    output_file = "out_spider/spiders/links_2.csv"
+    output_file = "out_spider/spiders/links.csv"
     html_folder = "saved_html_pages"
     files_folder = "downloaded_files"
 
@@ -85,24 +85,6 @@ class LinkParserSpider(scrapy.Spider):
             self.logger.info(f"Сохранена HTML-страница: {file_path}")
         except Exception as e:
             self.logger.error(f"Ошибка сохранения HTML: {e}")
-
-    # def download_file(self, url, file_type):
-    #     """Скачиваем PDF или DOCX файл"""
-    #     try:
-    #         response = requests.get(url, timeout=30)
-    #         if response.status_code == 200:
-    #             # Создадим уникальное имя файла на основе URL
-    #             file_name = hashlib.md5(url.encode('utf-8')).hexdigest() + f".{file_type}"
-    #             file_path = os.path.join(self.files_folder, file_name)
-    #
-    #             with open(file_path, 'wb') as f:
-    #                 f.write(response.content)
-    #
-    #             self.logger.info(f"Скачан файл: {file_path}")
-    #         else:
-    #             self.logger.warning(f"Не удалось скачать файл {url}: статус {response.status_code}")
-    #     except requests.exceptions.RequestException as e:
-    #         self.logger.error(f"Ошибка при скачивании файла {url}: {e}")
 
     def save_link(self, url, link_type):
         """Сохраняем ссылку в CSV"""
