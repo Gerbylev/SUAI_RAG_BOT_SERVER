@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<meta property="og:site_name" content="ГУАП"/>
+	<meta property="og:url" content="https://guap.ru/search_pubs"/>
+	<meta property="og:type" content="website"/>
+	<title>Поиск по новостям – ГУАП</title>
+
+	<link href="https://src.guap.ru/themes/guap6/dist/theme.min.css?37" rel="stylesheet" />
+
+			<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function (m, e, t, r, i, k, a) {
+			m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+			m[i].l = 1 * new Date();
+			for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+		})
+			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		ym(86883871, "init", {
+			clickmap: true,
+			trackLinks: true,
+			accurateTrackBounce: true
+		});
+	</script>
+	<noscript>
+		<div><img src="https://mc.yandex.ru/watch/86883871" style="position:absolute; left:-9999px;" alt="" /></div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+
+			<!-- Top.Mail.Ru counter -->
+	<script type="text/javascript">
+		var _tmr = window._tmr || (window._tmr = []);
+		_tmr.push({id: "3604540", type: "pageView", start: (new Date()).getTime()});
+		(function (d, w, id) {
+			if (d.getElementById(id)) return;
+			var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+			ts.src = "https://top-fwz1.mail.ru/js/code.js";
+			var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+			if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+		})(document, window, "tmr-code");
+	</script>
+	<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3604540;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+	<!-- /Top.Mail.Ru counter -->
+
+
+	
+</head>
+
+<body class="d-flex flex-column h-100">
+	<span id="totop" onclick="themeToTop();"><i class="bi-chevron-up"></i></span>
+
+	
+	
+
+
+		<header id="site_header" class="py-2" style="background-color:#eee;">
+	<div class="container">
+		<div class="d-flex align-items-center">
+			<a href="/"><img style="max-height: 1.8rem;" src="https://src.guap.ru/logos/guap/guap.svg" alt="ГУАП" /></a>
+			<style>
+				.nav-quick {
+					--bs-nav-link-padding-x: .5rem;
+					--bs-nav-link-padding-y: 0;
+				}
+			</style>
+			<ul class="nav nav-quick ms-auto">
+				<li class="nav-item"><a class="nav-link" href="/sitemap"><i class="bi-diagram-3"></i></a></li>
+				<li class="nav-item"><a class="nav-link" href="/search"><i class="bi-search"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+
+	<main role="main">
+			<div class="container">
+						<nav id="breadcrumb" class="my-3" aria-label="breadcrumb">
+		<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="https://guap.ru">ГУАП</a></li>
+			<li class="breadcrumb-item active opacity-50" aria-current="page">
+				Поиск по&nbsp;новостям
+			</li>
+		</ol>
+	</nav>
+
+					<h1 class="my-4">Поиск по&nbsp;новостям</h1>
+			</div>
+		
+		<div class="container content mb-5">
+			
+<div class="form-floating mb-3">
+	<input type="text" class="form-control" id="fldFind" />
+	<label for="fldFind">Текст для поиска</label>
+</div>
+<div id="fldDates" class="input-group mb-3" style="max-width: 16rem;">
+	<input type="text" id="fldBegin" name="start" class="form-control" value="28.07.2025 19:59:18" />
+	<span class="input-group-text">:</span>
+	<input type="text" id="fldEnd" name="end" class="form-control rounded-end" value="28.10.2025 19:59:18" />
+</div>
+<div class="mb-3">
+	<button id="btnSearch" class="btn btn-primary">Поиск</button>
+</div>
+<hr />
+
+<link rel="stylesheet" href="https://src.guap.ru/libs/vanillajs-datepicker-1.3.4/dist/css/datepicker.min.css" crossorigin="anonymous">
+<script src="https://src.guap.ru/libs/vanillajs-datepicker-1.3.4/dist/js/datepicker-full.min.js" crossorigin="anonymous"></script>
+<script src="https://src.guap.ru/libs/vanillajs-datepicker-1.3.4/dist/js/locales/ru.js" crossorigin="anonymous"></script>
+
+<script>
+	const datepicker1 = new DateRangePicker(document.getElementById('fldDates'), {
+		language: 'ru',
+		minDate: new Date('2016-01-01'),
+		maxDate: new Date('2025-10-28T19:59:18')
+	});
+
+	const
+		btnSearch1 = document.getElementById('btnSearch'),
+		find1 = document.getElementById('fldFind'),
+		begin1 = document.getElementById('fldBegin'),
+		end1 = document.getElementById('fldEnd');
+
+	btnSearch1.addEventListener("click", (e1) => {
+		let
+			dates1 = datepicker1.getDates('yyyy-mm-dd'),
+			url1 = new URL(window.location.href);
+		url1.searchParams.set('find', find1.value);
+		url1.searchParams.set('begin', dates1[0]);
+		url1.searchParams.set('end', dates1[1]);
+		window.location.href = url1.toString();
+	});
+</script>
+
+
+<p class="lead">Всего: 295</p>
+	<p>
+		<small>27 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25390">Старт проекта «Каникулы в ГУАП»</a>
+	</p>
+	<p>
+		<small>27 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25383">Карьерный старт для студентов Института № 8</a>
+	</p>
+	<p>
+		<small>27 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25378">Доценты кафедры № 2 ИФПТИ ГУАП стали членами жюри интеллектуального состязания в Зеленогорске</a>
+	</p>
+	<p>
+		<small>27 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25377">ГУАП на XXVIII Международном научно-практическом форуме «SMARTEX-2025»</a>
+	</p>
+	<p>
+		<small>25 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25384">Студенты ФСПО — снова в числе лучших на Game Jam ГУАП!</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25394">Экскурсия для ГБОУ школы № 530</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25392">Международная студенческая олимпиада «Экономика и менеджмент — 2025»</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25391">Экскурсия для ГБОУ школы № 519</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25370">Заместитель директора Института № 8 поделился экспертным мнением в эфире радио «Говорит Москва»</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25369">III-й международный форум «Сельский туризм сквозь призму традиций и культурного наследия „От земли к столу“»</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25381">Проректор ГУАП принял участие в общем собрании членов Консорциума аэрокосмических вузов России</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25380">Социальная миссия студентов ГУАП: забота о старшем поколении</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25379">Передача памятной книги «Крылья победы создали в Казани» для студентов и сотрудников ГУАП</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25366">Научная битва ГУАП: новый этап популяризации науки</a>
+	</p>
+	<p>
+		<small>24 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25374">Вебинар «Актуальные вопросы космического права: международные и национальные аспекты»</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25388">Итоги выставки «Testing and control-2025»</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25387">Экскурсия для ГБОУ гимназии № 399</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25364">Объединяя усилия</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25367">Студенты Института радиотехники и инфокоммуникационных технологий прокачали стрессоустойчивость</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25363">Награда нашла своего героя</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25362">«Таможня — это навсегда». Интервью Светланы Викторовны Корниловой</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25361">Студенты кафедры международного предпринимательства в Санкт-Петербургской торгово-промышленной палате</a>
+	</p>
+	<p>
+		<small>23 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25376">Команда ГУАП заняла 2 место в дебатах XVIII Петербургского Партнериата</a>
+	</p>
+	<p>
+		<small>22 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25356">Сотрудники ГУАП приняли участие в III Городской Неделе химии и биологии</a>
+	</p>
+	<p>
+		<small>22 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25355">На Чемпионате России по спортивному ориентированию</a>
+	</p>
+	<p>
+		<small>22 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25373">Учебно-тренировочное мероприятие по спортивному ориентированию</a>
+	</p>
+	<p>
+		<small>22 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25382">Проректор ГУАП выступила на VIII Международном рыбопромышленном форуме</a>
+	</p>
+	<p>
+		<small>22 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25351">Ректор ГУАП приняла участие в заседании Совета Минобрнауки России</a>
+	</p>
+	<p>
+		<small>22 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25358">Экскурсия в музей-лабораторию А. С. Попова</a>
+	</p>
+	<p>
+		<small>21 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25353">Create with Wisdom: SUAI hosted a conference on artificial intelligence</a>
+	</p>
+	<p>
+		<small>21 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25352">Экскурсия для ГБОУ школы № 570</a>
+	</p>
+	<p>
+		<small>21 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25341">Присвоение почётного звания профессору кафедры № 81</a>
+	</p>
+	<p>
+		<small>21 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25350">Созидай с разумом: в ГУАП прошла конференция по искусственному интеллекту</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25349">Выступление амбассадоров ГУАП в школах Санкт-Петербурга</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25371">В ГУАП прошёл Международный экологический диктант «ЭкоТолк»</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25338">Научные дебаты СНО кафедры экономики высокотехнологичных производств</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25368">В университете состоялось закрытие программы «СПУТНИК ГУАП» 2025</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25336">Космос ближе, чем ты думаешь</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25328">Современные технологии в действии</a>
+	</p>
+	<p>
+		<small>20 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25340">Принимающее поведение</a>
+	</p>
+	<p>
+		<small>19 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25344">День отца в ГУАП: совет старост института № 2 напомнил о важности семейных ценностей</a>
+	</p>
+	<p>
+		<small>18 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25348">X Всероссийский форум космонавтики и авиации «КосмоСтарт»</a>
+	</p>
+	<p>
+		<small>18 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25347">Школьники посетили Факультет СПО ГУАП</a>
+	</p>
+	<p>
+		<small>18 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25354">Space is closer than you think!</a>
+	</p>
+	<p>
+		<small>18 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25372">Поздравляем наших студентов</a>
+	</p>
+	<p>
+		<small>18 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25331">Интеллектуальная игра «Гении экономики» Института № 8 прошла в МБОУ ГЦО «Высший пилотаж»</a>
+	</p>
+	<p>
+		<small>18 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25360">Открытая лекция в ТРК «Питер Радуга» на Всероссийском форуме космонавтики и авиации «КосмоСтарт»</a>
+	</p>
+	<p>
+		<small>17 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25322">ГУАП готов к проведению Научной битвы!</a>
+	</p>
+	<p>
+		<small>17 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25335">Открытый космос диалога</a>
+	</p>
+	<p>
+		<small>17 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25334">Космос зовет: школьники открывают профессии будущего</a>
+	</p>
+	<p>
+		<small>17 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25321">Сотрудникам Медиацентра ГУАП вручили благодарственные письма от Государственной Думы РФ</a>
+	</p>
+	<p>
+		<small>17 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25359">Студенты ГУАП принимают участие в конкурсе «Кибердром-2025»</a>
+	</p>
+	<p>
+		<small>17 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25327">Вселенная рядом</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25365">Студенты Института радиотехники и инфокоммуникационных технологий на пьедестале почета Primo Karting</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25324">Что спросить у космонавта?</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25337">Поэзия космоса Павла Клушанцева</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25342">День Знакомства и Общения</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25317">Сборная ГУАП приняла участие в турнире по мини-футболу «Летнее первенство 2025»</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25315">Поздравляем сборные команды ГУАП по баскетболу</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25308">Поздравляем сборную команду ГУАП по футболу</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25320">С юбилеем, «КосмоСтарт»!</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25375">Открытая встреча c космонавтом, Героем России — Иваном Вагнером</a>
+	</p>
+	<p>
+		<small>16 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25319">В ГУАП обсудили перспективы развития бортовых вычислительных сетей</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25346">Выступление амбассадора ГУАП в ГБОУ школе № 544</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25318">Чемпионат вузов Санкт-Петербурга по боулингу</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25301">В ГУАП прошло заседание научного семинара академика Абела Гезевича Аганбегяна</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25330">Петербургская школа ключевых исследователей и менеджеров сектора исследований и разработок по направлению «Беспилотные авиационные системы»</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25329">Команда ГУАП успешно выступила в финале кейс-чемпионата «PrоЛогистику»</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25326">Логистика — это будущее, и наши студенты уже его создают!</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25325">Встреча со студентами целевого обучения 1 курса</a>
+	</p>
+	<p>
+		<small>15 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25339">Делать прекрасное осязаемым</a>
+	</p>
+	<p>
+		<small>14 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25304">Выступление амбассадора ГУАП в ГБОУ СОШ № 612</a>
+	</p>
+	<p>
+		<small>14 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25303">Заместитель главнокомандующего Воздушно-космическими силами Вооруженных сил Российской Федерации посетил ВУЦ при ГУАП</a>
+	</p>
+	<p>
+		<small>14 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25302">«СтудRussia» — ГУАП заявил о себе!</a>
+	</p>
+	<p>
+		<small>14 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25310">Профессиональные Workshop «Турбизнес»</a>
+	</p>
+	<p>
+		<small>14 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25333">Запредельные скорости и высокий профессионализм</a>
+	</p>
+	<p>
+		<small>13 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25287">Студенты 4 Института ГУАП познакомились с карьерными возможностями в компании «НОРБИТ»</a>
+	</p>
+	<p>
+		<small>13 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25282">ГУАП на заседании ФУМО по укрупненным группам специальностей и направлений в области авиационной и ракетно-космической техники</a>
+	</p>
+	<p>
+		<small>12 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25285">Первое занятие секции «Право» Школы экономики и права ГУАП</a>
+	</p>
+	<p>
+		<small>12 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25307">Поздравляем с победой!</a>
+	</p>
+	<p>
+		<small>12 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25297">Соревнования по дартсу</a>
+	</p>
+	<p>
+		<small>12 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25295">Кубок восьмерок</a>
+	</p>
+	<p>
+		<small>12 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25293">Поздравляем Бурзалова Дениса</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25300">ГУАП посетили учащиеся школы № 311</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25286">День, когда мы стали ближе: как отмечали Всемирный день психического здоровья</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25284">VII Всероссийская научно-практическая конференция «Чтения памяти академика В. П. Глушко»</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25345">ГУАП на научно-практической конференции «Чтения памяти академика В. П. Глушко»</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25283">ГУАП и АНО «Санкт-Петербургский центр поддержки экспорта» подписали соглашение о сотрудничестве</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25305">Сотрудники ГУАП приняли участие в конференции АО ГосМКБ «Радуга» им. А. Я. Березняка</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25298">Учащиеся Гатчинской школы № 2 познакомились с институтом ФПТИ</a>
+	</p>
+	<p>
+		<small>10 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25276">Поздравляем студента группы 2322 Ягунова Игоря</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25357">МС-метролоджи открыла двери для студентов ФПТИ</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25291">Выступление специалиста ГУАП на собрании в ГБОУ СОШ № 232</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25290">Экскурсия для ГБОУ школы № 252</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25280">Дистанционное зондирование Земли как ключ к экологической и техносферной безопасности</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25312">SUAI developments were presented to the Director General of the Roscosmos State Corporation</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25311">Remote sensing of the Earth as a key to environmental and technospheric security</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25292">Представители ГУАП и Аналитического центра Комитета территориального развития Санкт-Петербурга обсудили перспективы сотрудничества</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25273">Студенты Института № 8 посетили заседание Конституционного Суда РФ</a>
+	</p>
+	<p>
+		<small>9 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25277">Генеральному директору Госкорпорации «Роскосмос» представили разработки ГУАП</a>
+	</p>
+	<p>
+		<small>8 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25289">ГУАП на карьерном форуме «ТехноКарьера»</a>
+	</p>
+	<p>
+		<small>8 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25323">Мероприятие с ООО «Норбит» прошло успешно!</a>
+	</p>
+	<p>
+		<small>8 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25281">ГУАП и АО «Равенство» подписали соглашение о сотрудничестве</a>
+	</p>
+	<p>
+		<small>8 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25275">Директор КосмоИнформ-Центра ГУАП стала героиней подкаста «Телеспутник LIVE»</a>
+	</p>
+	<p>
+		<small>8 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25274">Первое занятие секции «Экономика» Школы экономики и права ГУАП</a>
+	</p>
+	<p>
+		<small>8 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25278">Ректор ГУАП выступила на панельной дискуссии в рамках ПМГФ-2025</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25268">Кросс-вузовская экспертиза: день второй</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25288">Экскурсия для школьников из Владимирской области</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25267">Представители ГСУ СК России провели профориентационную встречу со студентами-юристами</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25266">Учебно-производственный стенд «Станция перемещения и сортировки заготовок МС-1»</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25262">Фильм Медиацентра ГУАП — победитель конкурса исторического короткометражного кино «Эхо Победы»</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25309">Открытие Петербургского международного газового форума 2025</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25299">В ГУАП стартовала осенняя Метрологическая школа</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25296">Всероссийские соревнования по спортивному ориентированию «Невский спринт»</a>
+	</p>
+	<p>
+		<small>7 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25260">В ГУАП разработали новую методику маршрутизации в бортовых сетях</a>
+	</p>
+	<p>
+		<small>6 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25259">В ГУАП проходит кросс-вузовская экспертиза</a>
+	</p>
+	<p>
+		<small>6 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25264">В ГУАП состоялась презентация проекта «Истоки патриотизма: опыт русской истории и культуры для школьной и студенческой молодежи»</a>
+	</p>
+	<p>
+		<small>6 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25257">Студент 4 Института ГУАП на XXXIV Международной научно-технической конференции в Сочи</a>
+	</p>
+	<p>
+		<small>6 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25255">Всемирный день трезвости в ГУАП</a>
+	</p>
+	<p>
+		<small>6 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25279">Студент ГУАП принял участие в форуме Мастерской лидеров сообщества «Я — Профессионал»</a>
+	</p>
+	<p>
+		<small>6 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25252">Достижения ГУАП представлены на Международном конгрессе астронавтики</a>
+	</p>
+	<p>
+		<small>5 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25294">Всероссийские студенческие соревнования и финал летнего сезона СГЛ</a>
+	</p>
+	<p>
+		<small>4 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25332">Девчата забрали 2 серебра!</a>
+	</p>
+	<p>
+		<small>4 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25250">Делегация Института № 8 приняла участие в VII Международном форуме «Россия и Ибероамерика в турбулентном мире: от общих вызовов к совместным решениям»</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25247">Знакомство студентов кафедры публичного права с деятельностью Законодательного Собрания Санкт-Петербурга</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25256">День учителя</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25245">Десятый Всероссийский Форум «КосмоСтарт» представили на пресс-конференции в ТАСС</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25244">III Всероссийская конференция «Территория цифрового РОСТа»</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25306">Гастрономический фестиваль MEGUSTRO</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25243">Проректор ГУАП представил доклад по исследованиям и разработкам в области приборостроения на заседании комиссии РАН</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25242">День пожилого человека</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25272">Студенты и сотрудники ГУАП приняли активное участие в Форуме молодых учёных «Полюс»</a>
+	</p>
+	<p>
+		<small>3 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25249">Специалист Центра трансфера технологий принял участие в международном форуме Digital Innopolis Days 2025</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25271">Первый день открытых дверей в новом учебном году</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25246">ГУАП стал площадкой для Всероссийской контрольной «Выходи решать»</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25238">Заместитель директора по воспитательной работе посетила семинар-совещание на базе Центра знаний «Машук»</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25263">Советник при ректорате ГУАП Наталия Чернова награждена почетным знаком «Заслуженный работник профессионального образования Санкт-Петербурга»</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25254">Советник при ректорате ГУАП Чернова Наталия Алексеевна награждена почетным знаком «Заслуженный работник профессионального образования Санкт-Петербурга»</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25261">Представители ГУАП приняли участие в форуме GIS Student Days 2025</a>
+	</p>
+	<p>
+		<small>2 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25233">Студенты ГУАП выступили в финале конкурса «Орбита молодежи-2025»</a>
+	</p>
+	<p>
+		<small>1 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25248">Экскурсия для ГБОУ школы № 573</a>
+	</p>
+	<p>
+		<small>1 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25258">Торжественное вручение дипломов и свидетельств об окончании аспирантуры ГУАП</a>
+	</p>
+	<p>
+		<small>1 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25270">Научные школы Санкт-Петербурга</a>
+	</p>
+	<p>
+		<small>1 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25240">«День Музыки» в ГУАП: Создаем настроение вместе!</a>
+	</p>
+	<p>
+		<small>1 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25237">Вручение удостоверений о повышении квалификации по совместной сетевой программе МГТУ им. Н. Э. Баумана и ГУАП</a>
+	</p>
+	<p>
+		<small>1 &#x43E;&#x43A;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25236">Старт «Космического класса» 2025/2026</a>
+	</p>
+	<p>
+		<small>30 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25265">Прибор для измерения цветовых характеристик объектов и передачи информации в промышленную сеть</a>
+	</p>
+	<p>
+		<small>30 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25231">Интеллектуальная игра «Брейн-ринг „Великие люди России“»</a>
+	</p>
+	<p>
+		<small>30 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25235">О России с любовью!</a>
+	</p>
+	<p>
+		<small>29 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25226">Лучшие в спорте: дайджест событий сентября</a>
+	</p>
+	<p>
+		<small>29 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25234">На Кубке России по спортивному ориентированию</a>
+	</p>
+	<p>
+		<small>28 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25227">ГУАП на образовательной выставке «Навигатор поступления»</a>
+	</p>
+	<p>
+		<small>27 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25229">«Огни» зажигают первый костер!</a>
+	</p>
+	<p>
+		<small>27 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25228">Специалисты ГУАП приняли участие в установочном семинаре-совещании для координаторов добровольческой деятельности</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25232">С началом студенчества, первокурсники!</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25230">Знатоки древних стен: как студенты ГУАП исследовали храмы и проверили знания</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25223">ГУАП: читайте нас в MAX!</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25343">Студенты ГУАП из республики Коми отметили День первокурсника с представительством родного края</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25225">ГУАП принял участие в игре «Что? Где? Когда?» на «ТехЛидВик»</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25224">Организационное собрание по практико-ориентированной программе ГУАП и ООО «Воздушные Ворота Северной Столицы» (Аэропорт Пулково)</a>
+	</p>
+	<p>
+		<small>26 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25219">Студенты ГУАП среди лучших на технологическом хакатоне</a>
+	</p>
+	<p>
+		<small>24 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25212">Поддержим СВОих!</a>
+	</p>
+	<p>
+		<small>24 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25211">Промежуточные результаты реализации стратегии развития ГУАП представили вице-губернатору Санкт-Петербурга</a>
+	</p>
+	<p>
+		<small>24 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25216">ГУАП на торжественном приеме в честь 76 годовщины образования КНР</a>
+	</p>
+	<p>
+		<small>24 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25209">Заместитель директора Института № 8 поделился экспертным мнением для ОТР</a>
+	</p>
+	<p>
+		<small>23 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25222">Презентация специализированных ядерных треков «Аэрокосмос», презентация проектной деятельности «Фабрики знаний Aerospace»</a>
+	</p>
+	<p>
+		<small>23 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25218">Студенты на тренинге «Как создать свой технологический стартап за 6 шагов»</a>
+	</p>
+	<p>
+		<small>23 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25217">Журнал ГУАП включен в «Белый список» научных изданий</a>
+	</p>
+	<p>
+		<small>23 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25215">Укрепление международных связей: визит белорусской делегации в ГУАП</a>
+	</p>
+	<p>
+		<small>23 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25207">Старт занятий «Космических классов» по курсу «Навигация»</a>
+	</p>
+	<p>
+		<small>23 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25210">Новый импульс сотрудничества</a>
+	</p>
+	<p>
+		<small>22 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25204">Ректор ГУАП приняла участие в дискуссии в рамках финала XXIII Всероссийского конкурса «Студенческий лидер»</a>
+	</p>
+	<p>
+		<small>22 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25200">Задачи проектной деятельности для студентов ядерного направления «Аэрокосмос» кафедры системного анализа и логистики</a>
+	</p>
+	<p>
+		<small>22 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25206">Наши спортсмены собрали весь пьедестал почёта</a>
+	</p>
+	<p>
+		<small>21 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25213">В ГУАП прошел день открытых дверей</a>
+	</p>
+	<p>
+		<small>21 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25205">Поздравляем студентку группы 4231, мастера спорта, Бельденко Софию</a>
+	</p>
+	<p>
+		<small>21 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25221">Представление образовательных программ института аэрокосмических приборов и систем в рамках первого дня открытых дверей в 2025-2026 учебном году</a>
+	</p>
+	<p>
+		<small>20 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25214">Студенты ГУАП стали победителями на фестивале «Гонки дронов»</a>
+	</p>
+	<p>
+		<small>20 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25208">Сотрудник ГУАП — в составе экспертного жюри регионального этапа фестиваля «Море Первых»</a>
+	</p>
+	<p>
+		<small>19 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25196">Университет представил достижения выпускников на выставке дипломных работ</a>
+	</p>
+	<p>
+		<small>19 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25220">SUAI experts develop a unique color recognition device</a>
+	</p>
+	<p>
+		<small>19 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25194">В ГУАП разработали уникальный прибор для распознавания цветов, востребованный в промышленности и образовании</a>
+	</p>
+	<p>
+		<small>19 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25198">Лекция-встреча</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25192">Фотоакция #БесконечныйВосьМой</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25197">Сотрудник ЦТТ принял участие в тренинге по развитию предпринимательских компетенций</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25269">Доцент ГУАП стал экспертом на мероприятии-спутнике V Конгресса молодых ученых</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25202">Фестиваль возможностей ГУАП: сделай студенческую жизнь ярче</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25201">Медиацентр на Фестивале возможностей ГУАП</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25199">Итоговая аттестация аспирантов кафедры системного анализа и логистики</a>
+	</p>
+	<p>
+		<small>18 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25193">Ректор ГУАП приняла участие в заседании профильной комиссии по инвестициям</a>
+	</p>
+	<p>
+		<small>17 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25203">Практический тренинг «Техноград: формирование концепции»</a>
+	</p>
+	<p>
+		<small>16 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25188">Организационное собрание со старостами первого курса института аэрокосмических приборов и систем</a>
+	</p>
+	<p>
+		<small>16 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25184">Выступление заместителя директора Института № 8 в эфире 78 канала</a>
+	</p>
+	<p>
+		<small>16 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25191">В ГУАП стартовали профориентационные мероприятия по представлению специализированных ядерных треков</a>
+	</p>
+	<p>
+		<small>16 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25186">Акселератор «ТехноПитер»: стартапы, готовимся к взлету!</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25182">Студенты Института № 8 — участники интенсива «Культура через призму медиа»</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25181">Тепло и по-семейному: ГУАП провел городской фестиваль «Время семьи 2025»</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25180">«Добро как норма жизни»</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25179">В ГУАП стартовала выставка лучших дипломных работ 2025 года</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25195">Культура через призму медиа</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25183">Институт ФПТИ провёл Всероссийский Урок метрологии для школьников сразу в пяти школах Санкт-Петербурга</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25178">Выставка лучших дипломных работ, выпускных квалификационных работ и магистерских диссертаций 2025 года</a>
+	</p>
+	<p>
+		<small>15 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25177">Сотрудничество компании «СофтБаланс» и Института № 8 открывает новые перспективы</a>
+	</p>
+	<p>
+		<small>14 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25190">На Кубке вузов «U-CUP Start SPb» по пулу</a>
+	</p>
+	<p>
+		<small>14 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25189">Поздравляем студентку учебной группы 4331 Кушигину Анастасию</a>
+	</p>
+	<p>
+		<small>13 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25187">Полуфинал всероссийского конкурса «Большая перемена»</a>
+	</p>
+	<p>
+		<small>12 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25175">Экскурсия для ГБОУ СОШ № 232</a>
+	</p>
+	<p>
+		<small>11 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25173">Студенты Института № 8 узнали про Осенний региональный тур Всероссийского студенческого проекта «Твой Ход»</a>
+	</p>
+	<p>
+		<small>11 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25172">Активист Медиацентра ГУАП рассказал первокурсникам об акселераторе «Медиа.Высота»</a>
+	</p>
+	<p>
+		<small>11 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25176">Не оставайся в стороне! В ГУАП прошел мастер-класс по первой помощи от «Движения первых»</a>
+	</p>
+	<p>
+		<small>11 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25174">Презентация пятого сезона студенческого проекта страны «Твой Ход»</a>
+	</p>
+	<p>
+		<small>10 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25171">Стресс под контролем, позитив на максимум.</a>
+	</p>
+	<p>
+		<small>10 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25170">Магистрант института № 8 — участница праздничного забега «Твой ход» и АССК России</a>
+	</p>
+	<p>
+		<small>10 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25169">Спортивные достижения студентов ГУАП: дайджест событий</a>
+	</p>
+	<p>
+		<small>10 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25168">Новый преподаватель кафедры аэрокосмических измерительно вычислительных комплексов — профессиональный пилот</a>
+	</p>
+	<p>
+		<small>10 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25253">Новый учебный год: стратегия развития и приоритеты</a>
+	</p>
+	<p>
+		<small>10 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25166">Первенство России по спортивному ориентированию</a>
+	</p>
+	<p>
+		<small>9 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25165">Старт лекций от Сибирского государственного университета геосистем и технологий (СГУГиТ) по сетевой программе для студентов ГУАП</a>
+	</p>
+	<p>
+		<small>9 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25164">Завершены полевые работы в рамках строительства газоперерабатывающего комплекса</a>
+	</p>
+	<p>
+		<small>8 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25185">Театрально-музыкальная постановка «Я помню» ко Дню памяти жертв блокады Ленинграда</a>
+	</p>
+	<p>
+		<small>8 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25167">Память в лицах</a>
+	</p>
+	<p>
+		<small>8 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25163">На чемпионате и первенстве Санкт-Петербурга по спортивному ориентированию</a>
+	</p>
+	<p>
+		<small>5 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25161">Статья об исследовании ученых ГУАП опубликована в ведущем мировом научном журнале</a>
+	</p>
+	<p>
+		<small>5 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25159">Делегация ГУАП продолжает работу в рамках Недели цифрового обучения</a>
+	</p>
+	<p>
+		<small>5 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25241">An article about a research by SUAI scientists published in the world’s leading scientific journal.</a>
+	</p>
+	<p>
+		<small>4 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25158">SUAI at UNESCO Digital Learning Week</a>
+	</p>
+	<p>
+		<small>4 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25156">ГУАП на Неделе цифрового обучения ЮНЕСКО</a>
+	</p>
+	<p>
+		<small>3 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25162">Университет почтил память жертв Беслана и обсудил вопросы противодействия терроризму</a>
+	</p>
+	<p>
+		<small>2 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25157">Твой проект — твой вызов!</a>
+	</p>
+	<p>
+		<small>2 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25155">Старт сетевой программы по направлениям подготовки бакалавриата и магистратуры «Технология транспортных процессов»</a>
+	</p>
+	<p>
+		<small>2 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25154">Студентка Института № 8 — участница IX Летней школы по миграции для студентов российских вузов</a>
+	</p>
+	<p>
+		<small>2 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25153">Старт сетевой программы между ГУАП и СГУГиТ по дисциплине «Основы проектирования приборов и систем»</a>
+	</p>
+	<p>
+		<small>1 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25152">ГУАП на V конгрессе молодых ученых</a>
+	</p>
+	<p>
+		<small>1 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25150">В ГУАП создали платформу для организации производственной практики</a>
+	</p>
+	<p>
+		<small>1 &#x441;&#x435;&#x43D;&#x442;&#x44F;&#x431;&#x440;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25148">Поздравление от директора института информационных технологий и программирования с Днем знаний</a>
+	</p>
+	<p>
+		<small>30 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25146">Выступление заместителя директора Института № 8 на «Радио Sputnik»</a>
+	</p>
+	<p>
+		<small>29 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25141">ГУАП на форуме «Технопром-2025»</a>
+	</p>
+	<p>
+		<small>29 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25149">Начало нового учебного года и открытое заседание Ученого совета ГУАП</a>
+	</p>
+	<p>
+		<small>29 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25147">Все зависит от нас самих!</a>
+	</p>
+	<p>
+		<small>28 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25142">Ректор ГУАП приняла участие в совещании о промежуточных итогах пилотного проекта по обновлению системы высшего образования в России</a>
+	</p>
+	<p>
+		<small>28 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25140">С Днем знаний!</a>
+	</p>
+	<p>
+		<small>28 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25151">Директор Центра космических услуг «КосмоИнформ-Центр» приняла участие в мероприятии-спутнике V Конгресса молодых ученых</a>
+	</p>
+	<p>
+		<small>28 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25139">Выпускная квалификационная работа в формате стартап</a>
+	</p>
+	<p>
+		<small>27 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25137">Молодые учёные ГУАП завершили обучение от Ассоциации Science Slam Россия</a>
+	</p>
+	<p>
+		<small>27 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25138">Организационное собрание для студентов первого курса заочной формы обучения</a>
+	</p>
+	<p>
+		<small>26 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25160">ГУАП на отборочном этапе X открытого корпоративного чемпионата профессионального мастерства предприятий ОСК</a>
+	</p>
+	<p>
+		<small>26 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25136">Дронрейсеры ГУАП завоевали право выступать на всероссийском уровне</a>
+	</p>
+	<p>
+		<small>26 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25135">Представители Института № 8 приняли участие в круглом столе на базе ГБОУ школы № 341</a>
+	</p>
+	<p>
+		<small>26 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25134">В ГУАП состоялись установочные встречи участников Научной битвы «Science Slam Россия»</a>
+	</p>
+	<p>
+		<small>25 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25132">Институт № 8 на хакатоне «Продуктовая И.Д.Е.Я.», организованном ГК «Газпром нефть»</a>
+	</p>
+	<p>
+		<small>25 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25131">Студенты ГУАП в финале Всероссийского молодежного конкурса научно-технических работ «Орбита молодежи»</a>
+	</p>
+	<p>
+		<small>25 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25130">Поздравляем Заслуженного профессора ГУАП Наума Михайловича Сироту!</a>
+	</p>
+	<p>
+		<small>25 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25133">Проректор ГУАП приняла участие в совещании о приоритетных задачах воспитательной деятельности</a>
+	</p>
+	<p>
+		<small>22 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25143">A delegation from the largest Chinese private education corporation visits SUAI</a>
+	</p>
+	<p>
+		<small>22 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25124">С Днём Государственного флага Российской Федерации!</a>
+	</p>
+	<p>
+		<small>22 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25126">ГУАП посетила делегация из крупнейшей китайской корпорации частного образования БАОСИН</a>
+	</p>
+	<p>
+		<small>22 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25125">ГУАП посетила делегация из крупнейшей китайской корпорации частного образования БАОСИН</a>
+	</p>
+	<p>
+		<small>22 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25129">Лучшее учебное пособие</a>
+	</p>
+	<p>
+		<small>21 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25123">Студенты и аспиранты ГУАП стали победителями конкурса грантов КНВШ</a>
+	</p>
+	<p>
+		<small>20 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25122">Сотрудники ГУАП приняли участие в работе проектной сессии «Архипелага 2025»</a>
+	</p>
+	<p>
+		<small>19 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25144">SUAI engineers develop a critical node of the baggage system</a>
+	</p>
+	<p>
+		<small>19 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25119">Студентка ГУАП — победительница Всероссийского молодежного фотоконкурса</a>
+	</p>
+	<p>
+		<small>19 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25120">В ГУАП разработали критически важный узел багажной системы</a>
+	</p>
+	<p>
+		<small>19 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25117">Студенты ГУАП успешно завершили обучение в IT-школе «Протей» по направлению C++</a>
+	</p>
+	<p>
+		<small>18 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25116">Команда «Буран» ГУАП одержала победу на хакатоне «Архипелаг 2025»</a>
+	</p>
+	<p>
+		<small>17 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25128">Поздравляем студентку группы 4231, мастера спорта, Бельденко Софию</a>
+	</p>
+	<p>
+		<small>17 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25115">Студент Института № 8 — лидер команды волонтёров «Таврида.Арт»</a>
+	</p>
+	<p>
+		<small>14 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25114">Команда «Буран» установила новый абсолютный рекорд на «Архипелаге»</a>
+	</p>
+	<p>
+		<small>14 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25113">В ГУАП стартует новая университетская стартап-студия</a>
+	</p>
+	<p>
+		<small>13 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25112">ГУАП принимает участие в разработке акселерационной программы на проектно-образовательном интенсиве «Архипелаг 2025»</a>
+	</p>
+	<p>
+		<small>13 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25111">Преподаватель Института № 8 принял участие в «Летнем ПедСовете» в Центре знаний «Машук»</a>
+	</p>
+	<p>
+		<small>11 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25145">SUAI improves its position in the ranking of universities in terms of the quality of training specialists in the field of AI</a>
+	</p>
+	<p>
+		<small>11 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25108">ГУАП улучшил позиции в рейтинге вузов по качеству подготовки специалистов в области ИИ</a>
+	</p>
+	<p>
+		<small>11 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25105">Команда «Буран» одержала победу на «Архипелаге 2025»</a>
+	</p>
+	<p>
+		<small>10 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25110">Александр Стоянов был признан лучшим вратарём турнира</a>
+	</p>
+	<p>
+		<small>10 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25109">Архипелаг 2025: стартовали с максимальными баллами</a>
+	</p>
+	<p>
+		<small>8 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25104">Показатели целевого приема в ГУАП выросли на 32%</a>
+	</p>
+	<p>
+		<small>7 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25103">Студентка института 8 приняла участие в «Таврида.АРТ 2025»</a>
+	</p>
+	<p>
+		<small>7 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25102">Приемная кампания ГУАП: идем на рекорд!</a>
+	</p>
+	<p>
+		<small>6 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25101">Технологии на службе экологии</a>
+	</p>
+	<p>
+		<small>6 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25100">Ивангородский филиал ГУАП развивает сотрудничество с компанией «РКС-энерго»</a>
+	</p>
+	<p>
+		<small>6 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25107">Technologies in the service of ecology</a>
+	</p>
+	<p>
+		<small>4 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25097">Поздравляем студента учебной группы 4215 Выборова Андрея</a>
+	</p>
+	<p>
+		<small>4 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25096">ГУАП готовится к Научной битве «Science Slam Россия»</a>
+	</p>
+	<p>
+		<small>4 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25106">SUAI is preparing for the Scientific Battle «Science Slam Russia»</a>
+	</p>
+	<p>
+		<small>4 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25095">ГУАП и АО «Третий парк» подписали соглашение о сотрудничестве и договор о практической подготовке обучающихся</a>
+	</p>
+	<p>
+		<small>1 &#x430;&#x432;&#x433;&#x443;&#x441;&#x442;&#x430;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25093">Заместитель директора института 8 принял участие в заседании комитета по межнациональным отношениям и реализации миграционной политики</a>
+	</p>
+	<p>
+		<small>31 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25118">Общие проекты дают чувство локтя</a>
+	</p>
+	<p>
+		<small>30 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25092">«Петровские ассамблеи 3.2.2»</a>
+	</p>
+	<p>
+		<small>30 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25090">Эта битва будет легендарной!</a>
+	</p>
+	<p>
+		<small>29 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25091">Студенты института 4 успешно прошли летнюю практику в IT-компании Neoflex</a>
+	</p>
+	<p>
+		<small>29 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25087">Быть частью истории</a>
+	</p>
+	<p>
+		<small>28 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25082">ГУАП поздравляет Анатолия Александровича Турчака с юбилеем!</a>
+	</p>
+	<p>
+		<small>28 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25098">ГУАП принимает участие во Всероссийском конкурсе лучших методических разработок</a>
+	</p>
+	<p>
+		<small>28 &#x438;&#x44E;&#x43B;&#x44F;</small><br />
+		<a target="_blank" href="https://new.guap.ru/pubs/25086">Промежуточные итоги приемной кампании ГУАП 2025</a>
+	</p>
+
+
+
+
+		</div>
+		
+	</main>
+
+
+	<div class="mt-auto">
+
+
+			<div id="guap_footer" class="py-5 text-light" style="background-color: #003666;">
+
+	<style>
+		#guap_footer {
+			font-size: 17px;
+		}
+
+		#guap_footer a {
+			color: #fff;
+			opacity: .5;
+		}
+
+		#guap_footer a:hover,
+		#guap_footer a:focus {
+			opacity: 1;
+		}
+
+		#guap_footer_contacts h4 {
+			margin: 0 0 .2em 0;
+			font-size: .9em;
+			opacity: .5;
+			font-weight: 400;
+		}
+
+		#guap_footer_contacts a {
+			opacity: 1;
+		}
+
+		#guap_footer_nav h4 {
+			margin: 0 0 1em 0;
+			font-size: 1.3em;
+			font-weight: 400;
+		}
+
+		#guap_footer_nav .nav {
+			flex-direction: column;
+			gap: 1em;
+		}
+
+		#guap_footer_nav .nav>a {
+			font-size: .9em;
+			line-height: 1.3;
+		}
+
+		#guap_footer_social .nav {
+			gap: 1.5em;
+		}
+
+		#guap_footer_social .nav>a {
+			font-size: 1.6em;
+			opacity: .75;
+		}
+
+		#guap_footer_social a:hover,
+		#guap_footer_social a:focus {
+			opacity: 1;
+		}
+	</style>
+
+	<div class="container">
+
+		<div class="mb-5">
+			<img class="img-fluid" style="max-height: 4em;" src="https://src.guap.ru/logos/guap/guap-desc-line_w.svg" alt="ФГАОУ ВО «Санкт-Петербургский государственный университет аэрокосмического приборостроения»" />
+		</div>
+
+		<div class="row">
+
+			<div id="guap_footer_nav" class="col-12 col-lg-8 order-1">
+
+				<div class="row row-cols-2 row-cols-xl-4 gy-5">
+
+					<div class="col">
+						<h4>Университет</h4>
+						<nav class="nav">
+							<a href="/sveden">Сведения об&nbsp;образовательной организации</a>
+							<a href="/struct">Структура</a>
+							<a href="https://guap.ru/sveden/common#address">Корпуса и&nbsp;общежития</a>
+							<a href="https://pro.guap.ru/professors">Преподаватели и&nbsp;сотрудники</a>
+							<a href="https://guap.ru/sveden/policy-personal-data">Политика обработки персональных данных</a>
+						</nav>
+					</div>
+
+					<div class="col">
+						<h4>Образование</h4>
+						<nav class="nav">
+							<a href="https://guap.ru/profor/study/class">Довузовское</a>
+							<a href="/fspo">Среднее профессиональное</a>
+							<a href="https://guap.ru/sveden/education/tab1#level1">Высшее</a>
+							<a href="/aspira">Аспирантура и&nbsp;докторантура</a>
+							<a href="/fdpo">Дополнительное профессиональное</a>
+						</nav>
+					</div>
+
+					<div class="col">
+						<h4>Деятельность</h4>
+						<nav class="nav">
+							<a href="/inter">Международная</a>
+							<a href="/science">Научная и&nbsp;инновационная</a>
+							<a href="/eif">Финансово-экономическая</a>
+							<a href="/vrmp">Воспитательная работа и&nbsp;молодежная политика</a>
+							<a href="/profor">Профориентация школьников</a>
+						</nav>
+					</div>
+
+					<div class="col">
+						<h4>Ресурсы</h4>
+						<nav class="nav">
+							<a href="/sitemap">Карта сайта</a>
+							<a href="/media">Медиаплощадки</a>
+							<a href="/smi">СМИ о ГУАП</a>
+							<a href="https://guap.ru/sveden/site">Информация для лиц с&nbsp;ОВЗ</a>
+							<a href="/faq">Вопросы и ответы</a>
+						</nav>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="guap_footer_contacts" class="col-12 col-lg-4 order-2 order-lg-0">
+				<hr class="d-lg-none mt-5" />
+				<div class="d-flex flex-column gap-3" style="max-width: 20em;">
+					<div>
+						<h4>Почтовый адрес:</h4>
+						<div>190000, Россия, <nobr>Санкт-Петербург</nobr>, <nobr>ул. Большая Морская</nobr>, <nobr>д. 67, лит. А</nobr>, ГУАП</div>
+					</div>
+					<div>
+						<h4>Приемная комиссия:</h4>
+						<div>
+							<a target="_blank" href="https://priem.guap.ru">https://priem.guap.ru</a>,
+							<a href="tel:+78123122107" itemprop="telephone" class="link-telephone text-nowrap">+7-812-312-21-07</a>,
+							<a href="mailto:priem@guap.ru" itemprop="email" class="link-email text-nowrap">priem@guap.ru</a>
+						</div>
+					</div>
+					<div>
+						<h4>Отдел делопроизводства:</h4>
+						<div>
+							<a href="tel:+78124947005" itemprop="telephone" class="link-telephone text-nowrap">+7-812-494-70-05</a>,
+							<a href="tel:+78124947057" itemprop="telephone" class="link-telephone text-nowrap">+7-812-494-70-57 (факс)</a>,
+							<a href="mailto:info@guap.ru" itemprop="email" class="link-email text-nowrap">info@guap.ru</a>
+						</div>
+					</div>
+					<div>
+						<h4>Отдел информационно-стратегических коммуникаций&nbsp;и&nbsp;рекламы:</h4>
+						<div>
+							<a href="mailto:pr@guap.ru" itemprop="email" class="link-email text-nowrap">pr@guap.ru</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="guap_footer_social" class="mt-5">
+			<div class="d-flex flex-wrap justify-content-lg-end">
+				<nav class="nav">
+					<a target="_blank" href="https://vk.com/guap_ru" title="ВКонтакте"><i class="gi-logo-vk"></i></a>
+					<a target="_blank" href="https://ok.ru/guapru" title="Одноклассники"><i class="gi-logo-ok"></i></a>
+					<a target="_blank" href="https://rutube.ru/channel/23832078/" title="RUTUBE"><i class="gi-logo-rutube"></i></a>
+					<a target="_blank" href="https://t.me/new_guap" title="Телеграм"><i class="gi-logo-telegram"></i></a>
+					<a target="_blank" href="https://dzen.ru/guap_ru" title="Дзен"><i class="gi-logo-dzen"></i></a>
+				</nav>
+			</div>
+			<hr />
+			<div class="d-flex flex-wrap justify-content-lg-end small opacity-75">
+				<span>Разработка сайта — <a href="/it">УЦР ГУАП</a></span>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
+	</div>
+
+
+	<script src="https://src.guap.ru/themes/guap6/dist/theme.min.js?37"></script>
+	
+</body>
+
+</html>

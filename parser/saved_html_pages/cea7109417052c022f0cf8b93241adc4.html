@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html xml:lang="en-gb" lang="en-gb" dir="ltr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <base href="https://www.matec-conferences.org/articles/matecconf/ref/2018/20/matecconf_erzr2018_03024/matecconf_erzr2018_03024.html" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="conference, proceedings, materials, engineering, chemistry, open access" />
+  <meta name="robots" content="index, follow, noarchive" />
+  <meta name="description" content="MATEC Web of Conferences, open access proceedings in Materials science, Engineering and Chemistry" />
+  <title>A decentralised solution for coordinating decisions in large-scale autonomic systems | MATEC Web of Conferences</title>
+  <link rel="stylesheet" href="/libraries/jquery/jquery.multiselect.css" type="text/css" />
+  <link rel="stylesheet" href="/libraries/jquery/jquery.qtip/jquery.qtip.min.css" type="text/css" />
+  <link rel="stylesheet" href="/libraries/jquery/jquery.magnific-popup.css" type="text/css" />
+  <link rel="stylesheet" href="/p/jquery.php/ui/1.12.0/themes/base/jquery-ui.css" type="text/css" />
+  <link rel="stylesheet" href="/templates/template1/css/com_article.css" type="text/css" />
+  <link rel="stylesheet" href="/templates/template1/css/com_article_hljs_github.min.css" type="text/css" />
+  <link rel="stylesheet" href="/templates/template1/css/mod_article_bookmarking.css" type="text/css" />
+  <link rel="stylesheet" href="/templates/template1/css/mod_solr.css" type="text/css" />
+  <script src="/p/jquery.php/jquery-3.1.0.min.js" type="text/javascript"></script>
+  <script src="/plugins/system/jqueryeasy/jquerynoconflict.js" type="text/javascript"></script>
+  <script src="/p/jquery.php/ui/1.12.0/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="/libraries/jquery/jquery.multiselect.min.js" type="text/javascript"></script>
+  <script src="/libraries/jquery/jquery.qtip/jquery.qtip.min.js" type="text/javascript"></script>
+  <script src="/libraries/jquery/jquery.magnific-popup.min.js" type="text/javascript"></script>
+  <script src="https://www.matec-conferences.org/components/com_article/assets/js/highlight/highlight.min.js" type="text/javascript"></script>
+  <script src="https://www.matec-conferences.org/components/com_article/assets/js/article.js" type="text/javascript"></script>
+  <script src="https://www.matec-conferences.org/components/com_article/assets/js/highlight/highlight.js" type="text/javascript"></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=G-S2LKMZBHJL" type="text/javascript"></script>
+  <script src="/modules/mod_article_bookmarking/assets/js/bookmarking.js" type="text/javascript"></script>
+  <script src="/libraries/jquery/jquery.autocomplete.js" type="text/javascript"></script>
+  <script type="text/javascript">
+var ARTICLE_CLICK_VIEW = "Click to view fullscreen";
+var ARTICLE_CLICK_HIDE = "Click anywhere to hide the fullscreen overlay";
+var ARTICLE_CLICK_MOVIE = "Click to play the movie";
+var COM_ARTICLE_DISPLAY_EQUATION_AS = "Display equations as";
+var COM_ARTICLE_COPY_IN_CLIPBOARD = "LaTeX copied in clipboard!";
+const MATHML_DISPLAY = "disabled";
+window.dataLayer = window.dataLayer || [];
+function gtag() {dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+  'wait_for_update': 500
+});
+gtag('config', 'G-S2LKMZBHJL', { 
+    'edpsname': 'matecconf',
+    'site_name': 'MATEC Web of Conferences',
+    'plateform': 'journal',
+    'plateform_type': 'edp',
+    'server_host': 'ovh-france'
+});gtag('config', 'user_properties', {
+    'edpsname': 'matecconf',
+    'site_name': 'MATEC Web of Conferences',
+    'plateform': 'journal',
+    'plateform_type': 'edp',
+    'server_host': 'ovh-france'
+});
+  </script>
+
+    <link href="/templates/template1/images/matecconf/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        
+    <link href="/templates/source/css/article.css" rel="stylesheet" type="text/css"/>
+    <link href="/templates/template1/css/cookie.css" rel="stylesheet" type="text/css"/>
+    <link href="/templates/template1/css/commun_v3.css" rel="stylesheet" type="text/css"/>
+    <link href="/templates/template1/css/template1.css" rel="stylesheet" type="text/css"/>
+    <link href="/templates/source/css/flags25.css" rel="stylesheet" type="text/css"/>    
+
+        <link href="/templates/template1/css/matecconf.css" rel="stylesheet" type="text/css"/>
+        <link href="/templates/source/js/mmenu2/dist/css/jquery.mmenu.all.css" rel="stylesheet" type="text/css"/>
+    <!--[if IE]>
+    <link rel="stylesheet" href="/templates/template1/css/ie.css" type="text/css" />
+    <script src="/templates/template1/html5-ie.js"></script>
+    <![endif]-->
+</head>
+
+
+
+<body id="com_article" class="matecconf  ">
+    <div id="journal-webpage">
+        <header>
+                                                    <div class="header-edp">
+        <div class="wrap ">
+
+                        <div class="logo-edp">
+
+
+                
+                                              <a href="https://www.edpsciences.org" target="_blank"><img src="/templates/source/images/logos/logo_edp_105.svg" alt="EDP Sciences logo"></a>
+                                                       </div>
+                                <nav class="edp-nav">
+                        <ul>
+                                <li><a href="https://publications.edpsciences.org/">Journals</a></li>
+                                <li><a href="https://www.edpsciences.org/en/books">Books</a></li>
+                                <li><a href="https://www.webofconferences.org/">Conferences</a></li>
+                        </ul>
+                </nav>
+                        
+
+
+                
+                
+                                   <div class="reg_info account">
+    <div class="btn-nav">
+                    <span class="ico16 white login"></span> <span class="reg_info-user">EDPS Account</span>
+                <nav class="user">
+                        <ul>
+                <li><a href="/component/services/">Login</a></li>
+            </ul>
+                    </nav>
+    </div>
+</div>
+
+
+                                        <div class="logo-woc">
+                        <a href="https://www.webofconferences.org" title="Web of Conferences - The smart approach to conference proceedings by EDP Sciences"><img src="/templates/template1/images/source/logo_congress.png" alt="Web of Conferences logo"></a>
+                        </div>
+                
+                <div class="clear"></div>
+        </div>
+</div>
+
+
+                                                
+
+	    
+
+            <div class="header-nav">
+
+              
+              <div class="wrap">
+                        
+                                <a href="/" class="logo" title="Journal homepage"><img src="/templates/template1/images/matecconf/logo_matecconf.png" alt="MATEC Web of Conferences"></a>
+                
+                <nav class="menu">
+                  
+<ul class="menu">
+<li class="item-121"><a href="/component/issues/?task=all&amp;Itemid=121" >All issues</a></li><li class="item-325"><a href="/series" >Series</a></li><li class="item-326"><a href="https://www.webofconferences.org/matec-web-of-conferences-forthcoming-conferences" target="_blank" >Forthcoming</a></li><li class="item-268"><a href="/about-the-journal/aims-and-scope" >About</a></li></ul>
+
+                </nav>
+
+
+                            
+                
+
+<div class="custom search default">
+<span class="ico ico-search" title="Display the search engine">Search</span>
+</div>
+
+
+                <a href="#menu-mobile" class="nav-mobile-link">Menu</a>
+                
+              </div>
+
+               
+            <nav id="menu-mobile">
+<ul class="menu">
+<li class="item-265 deeper parent"><span class="separator">Browse</span>
+<ul><li class="item-246"><a href="/component/issues/?task=all" >All issues</a></li><li class="item-249"><a href="https://www.webofconferences.org/matec-web-of-conferences-forthcoming-conferences" target="_blank" >Forthcoming</a></li><li class="item-329"><a href="/browse/series" >Series</a></li></ul></li><li class="item-243 deeper parent"><span class="separator">About the journal</span>
+<ul><li class="item-278"><a href="/about-the-journal/aims-and-scope" >Aims and scope</a></li><li class="item-437"><a href="/about-the-journal/editorial-board" >Editorial board</a></li><li class="item-274"><a href="/about-the-journal/indexed-in" >Indexed in</a></li><li class="item-345"><a href="/about-the-journal/publishing-policies-ethics" >Publishing Policies &amp; Ethics</a></li><li class="item-286"><a href="/about-the-journal/published-by" >Published by</a></li></ul></li><li class="item-332"><a href="/for-conference-organizers" >For conference organizers</a></li><li class="item-279"><a href="/for-authors" >For authors</a></li><li class="item-252"><a href="/news" >News</a></li><li class="item-350 deeper parent"><span class="separator">All open access proceedings journals</span>
+<ul><li class="item-351"><a class=" bioconf" href="http://www.bio-conferences.org/" target="_blank" title="Open-access proceedings in Biology" >BIO Web of Conferences</a></li><li class="item-353"><a class=" itmconf" href="http://www.itm-conferences.org/" target="_blank" title="Open Access proceedings in Information technology, Computer Science and Mathematics" >ITM Web of Conferences</a></li><li class="item-355"><a class=" mateconf" href="http://www.matec-conferences.org/" target="_blank" title="Open Access proceedings in Materials science, Engineering and Chemistry" >MATEC Web of Conferences</a></li><li class="item-357"><a class=" e3sconf" href="http://www.e3s-conferences.org/" target="_blank" title="Open-access proceedings in Environment, Energy and Earth Sciences" >E3S Web of Conferences</a></li><li class="item-359"><a class=" shsconf" href="https://www.shs-conferences.org/" target="_blank" title="Open Access proceedings in Humanities and Social Sciences" >SHS Web of Conferences</a></li><li class="item-361"><a class=" epjconf" href="https://www.epj-conferences.org/" target="_blank" title="Open-access proceedings in physics and related sciences" >EPJ Web of Conferences</a></li></ul></li><li class="item-367"><a href="https://www.webofconferences.org/client-feedback?task=matecconf" target="_blank" >Client feedback</a></li><li class="item-431"><a href="https://www.webofconferences.org/faq" target="_blank" >FAQ</a></li><li class="item-347"><a href="/contact" >Contact</a></li><li class="item-389"><a class=" link-request" href="https://www.webofconferences.org/request-a-quote" target="_blank" >Request a quote</a></li></ul>
+</nav>
+            </div>
+
+            <div id="search" class="hidden">
+    <div class="wrap-search">
+        <form action="/component/solr/?task=quick_search" method="post">
+            <div class="wrap">
+                <div class="inputs">
+                    <input type="text" name="q" />
+                    <button type="submit" value="search">
+                        <span class="ico ico-search" title="Search"></span>
+                    </button>
+                </div> 
+                                <div class="advanced"><a href="/component/solr/">Advanced Search</a></div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+	jQuery(function ($) {
+	    var source = function (request, callback) {
+	        var term = request.term;
+            $.ajax({
+                url: '/index.php',
+                dataType: 'json',
+                method: 'GET',
+                data: {
+                    option: 'com_solr',
+                    task: 'auto_complete',
+                    query: term
+                },
+                success: function (data) {
+                    var suggestions = [];
+                    try {
+                        data.suggest.default[term].suggestions.forEach(function (s) { suggestions.push(s.term)}) } catch (e) {
+                    }
+
+                    callback(suggestions);
+                },
+                error: function (err) {
+                    callback([]);
+                }
+            });
+        };
+
+		$('#search').find('input[name=q]').autocomplete({
+			source: source
+		});
+	});
+</script>
+
+                          <div class="header-cover">
+                                                                    
+              </div>
+                    </header>
+
+        <main class="matecconf" id="main">
+
+            <!--div class="wrap">
+             <p>Message placeholder</p>
+            </div-->
+
+            
+            
+                                                    
+
+            
+            
+            <div class="wrap" >
+                              
+<div class="breadcrumbs">
+
+
+
+<a href="/component/issues/" class="pathway">All issues</a> <img src="/media/system/images/arrow.png" alt=""  /> <a href="/articles/matecconf/abs/2018/20/contents/contents.html" class="pathway">Volume 161 (2018)</a> <img src="/media/system/images/arrow.png" alt=""  /> <a href="/articles/matecconf/abs/2018/20/matecconf_erzr2018_03024/matecconf_erzr2018_03024.html" class="pathway">MATEC Web Conf., 161 (2018) 03024</a> <img src="/media/system/images/arrow.png" alt=""  /> <span>References</span></div>
+
+              
+                                                    <div id="content" class="id-101  full">
+                    <div>
+                                           
+                        <nav class="nav-article nav-buttons">
+                          
+<ul class="menu">
+<li class="item-265 deeper parent"><span class="separator">Browse</span>
+<ul><li class="item-246"><a href="/component/issues/?task=all" >All issues</a></li><li class="item-249"><a href="https://www.webofconferences.org/matec-web-of-conferences-forthcoming-conferences" target="_blank" >Forthcoming</a></li><li class="item-329"><a href="/browse/series" >Series</a></li></ul></li><li class="item-243 deeper parent"><span class="separator">About the journal</span>
+<ul><li class="item-278"><a href="/about-the-journal/aims-and-scope" >Aims and scope</a></li><li class="item-437"><a href="/about-the-journal/editorial-board" >Editorial board</a></li><li class="item-274"><a href="/about-the-journal/indexed-in" >Indexed in</a></li><li class="item-345"><a href="/about-the-journal/publishing-policies-ethics" >Publishing Policies &amp; Ethics</a></li><li class="item-286"><a href="/about-the-journal/published-by" >Published by</a></li></ul></li><li class="item-332"><a href="/for-conference-organizers" >For conference organizers</a></li><li class="item-279"><a href="/for-authors" >For authors</a></li><li class="item-252"><a href="/news" >News</a></li><li class="item-350 deeper parent"><span class="separator">All open access proceedings journals</span>
+<ul><li class="item-351"><a class=" bioconf" href="http://www.bio-conferences.org/" target="_blank" title="Open-access proceedings in Biology" >BIO Web of Conferences</a></li><li class="item-353"><a class=" itmconf" href="http://www.itm-conferences.org/" target="_blank" title="Open Access proceedings in Information technology, Computer Science and Mathematics" >ITM Web of Conferences</a></li><li class="item-355"><a class=" mateconf" href="http://www.matec-conferences.org/" target="_blank" title="Open Access proceedings in Materials science, Engineering and Chemistry" >MATEC Web of Conferences</a></li><li class="item-357"><a class=" e3sconf" href="http://www.e3s-conferences.org/" target="_blank" title="Open-access proceedings in Environment, Energy and Earth Sciences" >E3S Web of Conferences</a></li><li class="item-359"><a class=" shsconf" href="https://www.shs-conferences.org/" target="_blank" title="Open Access proceedings in Humanities and Social Sciences" >SHS Web of Conferences</a></li><li class="item-361"><a class=" epjconf" href="https://www.epj-conferences.org/" target="_blank" title="Open-access proceedings in physics and related sciences" >EPJ Web of Conferences</a></li></ul></li><li class="item-367"><a href="https://www.webofconferences.org/client-feedback?task=matecconf" target="_blank" >Client feedback</a></li><li class="item-431"><a href="https://www.webofconferences.org/faq" target="_blank" >FAQ</a></li><li class="item-347"><a href="/contact" >Contact</a></li><li class="item-389"><a class=" link-request" href="https://www.webofconferences.org/request-a-quote" target="_blank" >Request a quote</a></li></ul>
+
+                        </nav>
+                                            
+                      
+<div id="system-message-container">
+</div>
+                      
+
+                      
+                                              <div class="flexme flexme-article">
+                        <div class="article-content">
+                                <div>
+    
+<div class="special_article gold">Open Access</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+ 
+    <div class="summary " >
+	<table>
+		
+	
+		<tr>
+		<th valign="top">
+							Issue
+					</th>
+		<td width="10"></td>
+		<td>
+							<div>
+											MATEC Web Conf.
+									</div>
+										<div><strong>Volume </strong>161, 2018				</div>
+				
+					                13<sup xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">th</sup> International Scientific-Technical Conference on Electromechanics and Robotics “Zavalishin’s Readings” - 2018
+	            					</td>
+	<tr><td colspan="3" ></td></tr>
+	<tr><td colspan="3" class="sep_issue"></td></tr>
+	</tr>
+	
+						<tr>
+				<th>
+					Article Number
+					</th>
+				<td></td>
+				<td>03024</td>
+			</tr>
+							<tr>
+				<th>
+					Number of page(s)
+					</th>
+				<td></td>
+				<td>6</td>
+			</tr>
+				
+			<tr>
+			<th>Section</th>
+			<td></td>
+			<td>Robotics and Automation</td>
+		</tr>
+		
+			<tr>
+			<th>DOI</th>
+			<td></td>
+			<td>
+				<a href="https://doi.org/10.1051/matecconf/201816103024">
+					https://doi.org/10.1051/matecconf/201816103024
+				</a>
+			</td>
+		</tr>
+		
+			<tr>
+			<th>Published online</th>
+			<td></td>
+			<td>
+				18 April 2018
+			</td>
+		</tr>
+		
+		</table>
+</div>
+
+
+
+<div id="article">
+        <div id="content">
+        <ol class="references">
+                    <li>
+                <a name="R1"></a>IBM, White paper, IBM Corporation (2003), 1st Edition, 4th in June 2006
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar?q=IBM%2C+White+paper%2C+IBM+Corporation+%282003%29%2C+1st+Edition%2C+4th+in+June+2006">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R2"></a>J.O. Kephart, Engineering decentralized autonomic computing systems, in SOAR’10 (ACM, New York, NY, USA, 2010), 1-2, ISBN 978-1-4503-0087-2
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Engineering+decentralized+autonomic+computing+systems&author=J.O.+Kephart&journal=SOAR%E2%80%9910&publication_year=2010">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R3"></a>L. Steels, Towards a Theory of Emergent Functionality, in From Animals to Animats (First Int. Conf. on Simulation of Adaptive behaviour) (MIT Press, 1990), 451-461
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=L.+Steels&journal=Towards+a+Theory+of+Emergent+Functionality%2C+in+From+Animals+to+Animats&pages=451-461&publication_year=1990">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R4"></a>T.D. Wolf, T. Holvoet, Tech. Rep. CW384, Department of Computer Science, KU Leuven (2004)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=T.D.+Wolf+T.+Holvoet&journal=Tech.+Rep.+CW384&publication_year=2004">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R5"></a>T.D. Wolf, T. Holvoet, Emergence versus selforganisation:different concepts but promising when combined, in Engineering Self Organising Systems:Methodologies and Applications (Springer-Verlag, 2005), Vol. 3464 of Lecture Notes in Computer Science, 1-15
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=T.D.+Wolf+T.+Holvoet&journal=Emergence+versus+selforganisation%3Adifferent+concepts+but+promising+when+combined%2C+in+Engineering+Self+Organising+Systems%3AMethodologies+and+Applications&volume=3464&pages=1-15&publication_year=2005">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R6"></a>A. Israeli, M. Jalfon, Token Management Schemes and Random Walks Yield Self-Stabilizing Mutual Exclusion, in ACM Symposium on Principles (PODC’90) (1990), 119-131
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Token+Management+Schemes+and+Random+Walks+Yield+Self-Stabilizing+Mutual+Exclusion&author=A.+Israeli+M.+Jalfon&journal=ACM+Symposium+on+Principles+%28PODC%E2%80%9990%29&pages=119-131&publication_year=1990">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R7"></a>E.K. Lua, J. Crowcroft, M. Pias, R. Sharma, S. Lim, IEEE Communications Surveys and Tutorials 7, 72 (2005)
+
+                
+		                                                            <a target="link_edps" href="https://doi.org/10.1109/COMST.2005.1610546">
+                                                    [CrossRef]
+                                                </a>
+                                    		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=E.K.+Lua+J.+Crowcroft+M.+Pias+R.+Sharma+S.+Lim&journal=IEEE+Communications+Surveys+and+Tutorials&volume=7&issue=2&pages=72&publication_year=2005&issn=1553-877X&doi=10.1109%2FCOMST.2005.1610546">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R8"></a>O. Melekhova, M.A. Abchir, P. Châtel, J. Malenfant, I. Truck, A. Pappa, Self-Adaptation in Geotracking Applications: Challenges, Opportunities and Models, in ADAPTIVE 2010 (IEEE, 2010), 68-77, ISBN 978-1-61208-001-7
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=O.+Melekhova+M.A.+Abchir+P.+Ch%C3%A2tel+J.+Malenfant+I.+Truck+A.+Pappa&journal=Self-Adaptation+in+Geotracking+Applications%3A+Challenges%2C+Opportunities+and+Models">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R9"></a>A. Ronzhin, A.I. Saveliev, O. Basov, S. Solyonyj, Conceptual Model of Cyberphysical Environment Based on Collaborative Work of Distributed Means and Mobile Robots, in Interactive Collaborative Robotics - First International Conference, ICR 2016, Budapest, Hungary, August 24-26, 2016, Proceedings (2016), 32-39
+
+                
+		                                                            <a target="link_edps" href="https://doi.org/10.1007/978-3-319-43955-6_5">
+                                                    [CrossRef]
+                                                </a>
+                                    		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Conceptual+Model+of+Cyberphysical+Environment+Based+on+Collaborative+Work+of+Distributed+Means+and+Mobile+Robots&author=A.+Ronzhin+A.I.+Saveliev+O.+Basov+S.+Solyonyj&journal=Interactive+Collaborative+Robotics+-+First+International+Conference&volume=9812&pages=32-39&publication_year=2016&issn=978-3-319-43954-9%2C0302-9743&doi=10.1007%2F978-3-319-43955-6_5">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R10"></a>T.D. Wolf, G. Samaey, T. Holvoet, D. Roose, Decentralised Autonomic Computing: Analysing Self-Organising Emergent Behaviour using Advanced Numerical Methods, in IEEE ICAC’05 (2005)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Decentralised+Autonomic+Computing%3A+Analysing+Self-Organising+Emergent+Behaviour+using+Advanced+Numerical+Methods&author=T.D.+Wolf+G.+Samaey+T.+Holvoet+D.+Roose&journal=IEEE+ICAC%E2%80%9905&publication_year=2005">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R11"></a>T.D. Wolf, T. Holvoet, Designing Self-Organising Emergent Systems based on Information Flows and Feedback-loops, in IEEE SASO 2007 (2007)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Designing+Self-Organising+Emergent+Systems+based+on+Information+Flows+and+Feedback-loops&author=T.D.+Wolf+T.+Holvoet&journal=IEEE+SASO+2007&publication_year=2007">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R12"></a>M. Jelasity, A. Montresor, O. Babaoglu, ACM Transactions on Computer Systems 23, 219 (2005)
+
+                
+		                                                            <a target="link_edps" href="https://doi.org/10.1145/1082469.1082470">
+                                                    [CrossRef]
+                                                </a>
+                                    		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=M.+Jelasity+A.+Montresor+O.+Babaoglu&journal=ACM+Transactions+on+Computer+Systems&volume=23&issue=3&pages=219&publication_year=2005&issn=07342071&doi=10.1145%2F1082469.1082470">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R13"></a>I. Hegedũs, R. Ormándi, M. Jelasity, Gossip-based Learning under Drifting Concepts in Fully Distributed Networks, in IEEE SASO’12 (2012), 79-88
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Gossip-based+Learning+under+Drifting+Concepts+in+Fully+Distributed+Networks&author=I.+Heged%C5%A9s+R.+Orm%C3%A1ndi+M.+Jelasity&journal=IEEE+SASO%E2%80%9912&pages=79-88&publication_year=2012">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R14"></a>E. Loureiro, P. Nixon, S. Dobson, ACM Transactions on Autonomous and Adaptive Systems 7, article 14:1 (2012)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=E.+Loureiro+P.+Nixon+S.+Dobson&journal=ACM+Transactions+on+Autonomous+and+Adaptive+Systems+7&pages=1&publication_year=2012">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R15"></a>G. Picard, M.P. Gleizes, P. Glize, Distributed Frequency Assignment Using Cooperative Self-Organization, in IEEE SASO’07 (2007)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Distributed+Frequency+Assignment+Using+Cooperative+Self-Organization&author=G.+Picard+M.P.+Gleizes+P.+Glize&journal=IEEE+SASO%E2%80%9907&publication_year=2007">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R16"></a>E. Jeanvoine, C. Morin, D. Leprince, Un protocole de découverte de ressources optimisé pour l’allocation de ressources dans les grilles, in CFSE 2006 (2006), 49-59
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Un+protocole+de+d%C3%A9couverte+de+ressources+optimis%C3%A9+pour+l%E2%80%99allocation+de+ressources+dans+les+grilles&author=E.+Jeanvoine+C.+Morin+D.+Leprince&journal=CFSE+2006&pages=49-59&publication_year=2006">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R17"></a>A. Iamnitchi, I.T. Foster, D. Nurmi, A Peer-to-Peer Approach to Resource Location in Grid Environments, in IEEE HPDC-11) (2002), 419
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=A+Peer-to-Peer+Approach+to+Resource+Location+in+Grid+Environments&author=A.+Iamnitchi+I.T.+Foster+D.+Nurmi&journal=IEEE+HPDC-11&pages=419&publication_year=2002">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R18"></a>V. Kumar, N. Leonar, A.S. Morse, eds., Cooperative Control, Vol. 309 of Lecture Notes in Control and Information Sciences (Springer-Verlag, 2005)
+
+                
+		                                                            <a target="link_edps" href="https://doi.org/10.1007/b99788">
+                                                    [CrossRef]
+                                                </a>
+                                    		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Cooperative+Control&author=V.+Kumar+N.+Leonar+A.S.+Morse&journal=Cooperative+Control&volume=309&publication_year=2005&issn=978-3-540-22861-5%2C0170-8643&doi=10.1007%2Fb99788">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R19"></a>J. Kephart, H. Chan, R. Das, D. Levine, G. Tesauro, F. Rawson, C. Lefurgy, Coordinating Multiple Autonomic Managers to Achieve Specified Power-Performance Tradeoffs, in ICAC’07 (2007)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Coordinating+Multiple+Autonomic+Managers+to+Achieve+Specified+Power-Performance+Tradeoffs&author=J.+Kephart+H.+Chan+R.+Das+D.+Levine+G.+Tesauro+F.+Rawson+C.+Lefurgy&journal=ICAC%E2%80%9907&publication_year=2007">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R20"></a>F.A. de Oliveira Jr., R. Sharrock, T. Ledoux, Synchronization of Multiple Autonomic Control Loops:Application to Cloud Computing, in Coordination’12 (Springer-Verlag, 2012), Vol. 7274 of LNCS, 29-43
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=F.A.+de+Oliveira+Jr.+R.+Sharrock+T.+Ledoux&journal=Synchronization+of+Multiple+Autonomic+Control+Loops%3AApplication+to+Cloud+Computing%2C+in+Coordination%E2%80%9912&volume=7274&pages=29-43&publication_year=2012">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R21"></a>P. Vromant, D. Weyns, S. Malek, J. Andersson, On Interacting Control Loops in Self-Adaptive Systems, in ACM SEAMS’11 (2011), 202-207
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=On+Interacting+Control+Loops+in+Self-Adaptive+Systems&author=P.+Vromant+D.+Weyns+S.+Malek+J.+Andersson&journal=ACM+SEAMS%E2%80%9911&pages=202-207&publication_year=2011">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R22"></a>D. Weyns, S. Malek, J. Andersson, On Decentralized Self-Adaptation: Lessons from the Trenches and Challenges for the Future, in ACM SEAMS’10 (2010), 84-93
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=On+Decentralized+Self-Adaptation%3A+Lessons+from+the+Trenches+and+Challenges+for+the+Future&author=D.+Weyns+S.+Malek+J.+Andersson&journal=ACM+SEAMS%E2%80%9910&pages=84-93&publication_year=2010">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R23"></a>L. Baresi, S. Guinea, G. Tamburrelli, Towards Decentralized Self-adaptive Component-based Systems, in ACM SEAMS’08 (2008), 57-64
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Towards+Decentralized+Self-adaptive+Component-based+Systems&author=L.+Baresi+S.+Guinea+G.+Tamburrelli&journal=ACM+SEAMS%E2%80%9908&pages=57-64&publication_year=2008">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R24"></a>G. Mahdi, A. Gouaïch, F. Michel, Towards an Integrated Approach of Real-Time Coordination for Multi-agent Systems, in KES-AMSTA’10 (Springer-Verlag, 2010), Vol. 6070 of LNAI, 253-262
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Towards+an+Integrated+Approach+of+Real-Time+Coordination+for+Multi-agent+Systems&author=G.+Mahdi+A.+Goua%C3%AFch+F.+Michel&journal=KES-AMSTA%E2%80%9910&volume=6070&pages=253-262&publication_year=2010">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R25"></a>C. Gerber, C. Jung, Resource Management for Boundedly Optimal Agent Societies, in ECAI’98 (John Wiley &amp; Sons, 1998), 1-6
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Resource+Management+for+Boundedly+Optimal+Agent+Societies&author=C.+Gerber+C.+Jung&journal=ECAI%E2%80%9998&pages=1-6&publication_year=1998">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R26"></a>S. Rustogi, M. Singh, The Bases of Effective Coordination in Decentralized Multi-agent Systems, in ATAL’98 (Springer-Verlag, 1999), Number 1555 in LNAI, 149-161
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=The+Bases+of+Effective+Coordination+in+Decentralized+Multi-agent+Systems&author=S.+Rustogi+M.+Singh&journal=ATAL%E2%80%9998&pages=149-161&publication_year=1999">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R27"></a>L. Busoniu, R. Babuska, B. De Schutter, Systems, Man, and Cybernetics, Part C: Applications and Reviews, IEEE Transactions on 38, 156 (2008)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Systems%2C+Man%2C+and+Cybernetics%2C+Part+C%3A+Applications+and+Reviews&author=L.+Busoniu+R.+Babuska+B.+De+Schutter&journal=IEEE+Transactions+on&volume=38&pages=156&publication_year=2008">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R28"></a>J.R. Kok, N. Vlassis, Journal of Machine Learning Research 7, 1789 (2006)
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=J.R.+Kok+N.+Vlassis&journal=Journal+of+Machine+Learning+Research&volume=7&pages=1789&publication_year=2006">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R29"></a>I. Dusparic, V. Cahill, Research Issues in Multiple Policy Optimization Using Collaborative Reinforcement Learning, in ACM SEAMS’07 (2007), 18:1-7, ISBN 0-7695-2973-9
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?title=Research+Issues+in+Multiple+Policy+Optimization+Using+Collaborative+Reinforcement+Learning&author=I.+Dusparic+V.+Cahill&journal=ACM+SEAMS%E2%80%9907&volume=18&pages=1-7&publication_year=2007">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R30"></a>J. Dowling, S. Haridi, in Reinforcement Learning:Theory and Applications (I-Tech Education and Publishers, 2008), chap. 8, 143-166
+
+                
+		                		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=J.+Dowling+S.+Haridi&journal=Reinforcement+Learning%3ATheory+and+Applications&pages=143-166&publication_year=2008">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                    <li>
+                <a name="R31"></a>O. Melekhova, Technique et science informatiques 33, 31 (2014)
+
+                
+		                                                            <a target="link_edps" href="https://doi.org/10.3166/tsi.33.31-62">
+                                                    [CrossRef]
+                                                </a>
+                                    		
+                
+                                    <a href="https://scholar.google.com/scholar_lookup?author=O.+Melekhova&journal=Technique+et+science+informatiques&volume=33&issue=1-2&pages=31&publication_year=2014&issn=07524072&doi=10.3166%2Ftsi.33.31-62">[Google&nbsp;Scholar]</a>
+                
+                
+                 <span class="Z3988" title="">
+                                    </span>
+
+                
+                            </li>
+                </ol>
+    </div>
+
+</div>
+
+    <div id="metrics-tabs" data-doi="10.1051/matecconf/201816103024" data-edps_ref="matecconf_erzr2018_03024">
+<nav class="toolbar">
+	<button class="toolbar-item" id="metrics-siq">Current usage metrics</button>
+	<button class="toolbar-item" id="info">About article metrics</button>
+    
+	
+	<button class="toolbar-item" id="return">Return to article</button>
+</nav>
+
+<div class="panel" data-for="metrics-siq">
+</div>
+
+<div class="panel" data-for="metrics-alm"></div>
+
+<div class="panel" data-for="info">
+	
+
+	<p>Current usage metrics show cumulative count of Article Views (full-text article views including HTML views, PDF and ePub downloads, according to the available data)  and Abstracts Views on Vision4Press platform.</p>
+
+	<p>Data correspond to usage on the plateform after 2015. The current usage metrics is available 48-96 hours after online publication and is updated daily on week days.</p>
+
+	<div class="msg msg-info">
+		<span class="ico ico-info"></span>
+		<div>
+			<p>Initial download of the metrics may take a while.</p>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+
+</div>
+<script type="text/javascript" src="/templates/source/js/metrics-tab.js"></script>
+
+
+
+
+
+
+                                                    </div>
+                        <nav class="article">
+                           
+  <div class="module_title">
+    <a href="/">Homepage</a>
+</div>
+<div class="nav-section"><div class="title_toc"><a href="/articles/matecconf/abs/2018/20/contents/contents.html">Table of Contents</a></div><div class="module_nav"><a href="/articles/matecconf/ref/2018/20/matecconf_erzr2018_03023/matecconf_erzr2018_03023.html" class="back"><span></span>Previous article</a><a href="/articles/matecconf/ref/2018/20/matecconf_erzr2018_03025/matecconf_erzr2018_03025.html" class="forth">Next article<span></span></a><div class="clear"></div></div></div> 
+
+    <div class="nav-section files"> <h2>Article contents</h2><div class="article_doc"><ul><li><a href="/articles/matecconf/abs/2018/20/matecconf_erzr2018_03024/matecconf_erzr2018_03024.html" title="Abstract">Abstract</a></li><li><a href="/articles/matecconf/pdf/2018/20/matecconf_erzr2018_03024.pdf" title="PDF (127 KB)">PDF (127 KB)</a></li><li><a href="/articles/matecconf/ref/2018/20/matecconf_erzr2018_03024/matecconf_erzr2018_03024.html" title="References" class="current">References</a></li></ul>
+    </div>
+
+</div>
+
+
+
+
+
+    <div class="nav-section stats"><h2>Metrics</h2><script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script><ul><li><a id="show-metrics">Show article metrics</a></li></ul>
+    </div>
+
+
+<div class="nav-section servs"><h2>Services</h2><ul><li><strong>Articles citing this article</strong><br /><div style="margin-left:8px"><a href="https://www.matec-conferences.org/component/citedby/?task=crossref&amp;doi=10.1051/matecconf/201816103024">CrossRef (3)</a></div></li><li><strong>Same authors</strong><br /><div style="margin-left:8px">- <a href="https://www.matec-conferences.org/component/solr/?task=authors&amp;tool=google&amp;dkey=10.1051/matecconf/201816103024" target="_blank">Google Scholar</a></div><div style="margin-left:8px">- <a href="https://www.matec-conferences.org/component/solr/?task=authors&amp;dkey=10.1051/matecconf/201816103024" target="_blank">EDP Sciences database</a></div></li><div class="separator"></div><li><a href="https://www.matec-conferences.org/component/recommend/?type=article&amp;dkey=10.1051/matecconf/201816103024">Recommend this article</a></li><li><a href="https://www.matec-conferences.org/component/makeref/?task=show&amp;type=html&amp;doi=10.1051/matecconf/201816103024">Download citation</a></li></ul>
+</div>
+ 
+
+
+ 
+  <div class="nav-section related">
+  <h2>Related Articles</h2>
+  <script type="text/javascript">
+    jQuery(function ($) {
+      $(document).ready(function() {
+        $('.nav-toggle').click(function() {
+          var collapse_content_selector = $(this).attr('href');
+          var toggle_switch = $(this);
+          $(collapse_content_selector).toggle(function() {
+            if ($(this).css('display') == 'none') {
+              toggle_switch.html('More');
+            } else {
+              toggle_switch.html('Less');
+            }
+          });
+        });
+      });
+    });
+  </script>
+            <div class="articles">
+                      <a href="https://www.matec-conferences.org/articles/matecconf/abs/2016/03/matecconf_icmes2016_07011/matecconf_icmes2016_07011.html" class="title">A New Smart Grid Control and Operation Concept - Autonomic Power System</a>
+            <br />
+    
+          MATEC Web of Conferences 40, 07011 (2016)<br />
+        <div class="separator"></div>
+                            <a href="https://www.matec-conferences.org/articles/matecconf/abs/2018/32/matecconf_smima2018_03092/matecconf_smima2018_03092.html" class="title">An Distributed Virtual Machine Placement Algorithm for Balanced Resource Utilization and Low Energy Consumption</a>
+            <br />
+    
+          MATEC Web of Conferences 173, 03092 (2018)<br />
+        <div class="separator"></div>
+                            <a href="https://www.bio-conferences.org/articles/bioconf/full_html/2023/13/bioconf_oiv2023_03026/bioconf_oiv2023_03026.html" class="title">Wine NFT cryptoassets: EU regulatory issues and market challenges</a>
+            <br />
+    
+          BIO Web of Conferences 68, 03026 (2023)<br />
+        <div class="separator"></div>
+                </div>
+      <div id="searchmlt" class="articles" style="display:none">
+      <div class="separator"></div>
+                      <a href="https://wujns.edpsciences.org/articles/wujns/full_html/2024/03/wujns-1007-1202-2024-03-0228-11/wujns-1007-1202-2024-03-0228-11.html" class="title">BDAE: A Blockchain-Based and Decentralized Attribute-Based Encryption Scheme for Secure Data Sharing</a>
+            <br />
+    
+          Wuhan University Journal of Natural Sciences, 2024, Vol.29 No.3, 228-238<br />
+        <div class="separator"></div>
+                            <a href="https://www.nss-journal.org/articles/nss/abs/2011/04/nss110036/nss110036.html" class="title">Dossier « Le champ des commons en question : perspectives croisées » - A multimethod approach to study the governance of social-ecological systems</a>
+            <br />
+    
+          Natures Sciences Sociétés 19, 382-394 (2011)<br />
+        <div class="separator"></div>
+          </div>
+        </ul>
+  <button href="#searchmlt" class="nav-toggle">More</button>
+</div>
+
+ 
+  <div class="nav-section bookmark">
+	<h2>Bookmarking</h2>
+	<ul>
+		<li>
+			<a href="https://www.facebook.com/share.php?u=https://doi.org/10.1051/matecconf/201816103024" onclick="return fbs_click('https://doi.org/10.1051/matecconf/201816103024', 'A decentralised solution for coordinating decisions in large-scale autonomic systems');" title="Share on Facebook" target="_blank" onclick="_gaq.push(['_trackPageview', '/bookmarking/Facebook/A decentralised solution for coordinating decisions in large-scale autonomic systems']);">
+				<span class="ico ico-s ico-facebook"></span> 
+			</a>
+		</li>
+		<li>
+			<a title="Share on Twitter" href="https://twitter.com/intent/tweet?text=A decentralised solution for coordinating decisions in large-scale autonomic systems.%20https://doi.org/10.1051/matecconf/201816103024" class="twitter-share-button" data-count="none" target="_blank" onclick="_gaq.push(['_trackPageview', '/bookmarking/Twitter/A decentralised solution for coordinating decisions in large-scale autonomic systems']);">
+				<span class="ico ico-s ico-twitter"></span>
+			</a>
+		</li>
+		<li>
+			<a title="Share on LinkedIn" href="https://www.linkedin.com/shareArticle?mini=true&url=https://doi.org/10.1051/matecconf/201816103024" onclick="_gaq.push(['_trackPageview', '/bookmarking/LinkedIn/A decentralised solution for coordinating decisions in large-scale autonomic systems']);">
+				<span class="ico ico-s ico-linkedin"></span>
+			</a>
+		</li>
+		<li>
+			<a title="Share on Sina Weibo" href="https://service.weibo.com/share/share.php?title=A decentralised solution for coordinating decisions in large-scale autonomic systems&url=https://doi.org/10.1051/matecconf/201816103024" target="_blank" onclick="_gaq.push(['_trackPageview', '/bookmarking/Weibo/A decentralised solution for coordinating decisions in large-scale autonomic systems']);">
+				<span class="ico ico-s ico-sinaweibo"></span>
+			</a>
+		</li>
+		<li>
+			<a title="Add this article to your Mendeley library" href="https://www.mendeley.com/import/?doi=10.1051/matecconf/201816103024" onclick="_gaq.push(['_trackPageview', '/bookmarking/Mendeley/A decentralised solution for coordinating decisions in large-scale autonomic systems']);">
+				<span class="ico ico-s ico-mendeley"></span>
+				<svg class="share-icon-svg" viewBox="0 0 32 32" xmlns="https://www.w3.org/2000/svg">
+					<title>Mendeley</title>
+					<path class="share-icon-svg-mendeley" d="M0 0h32v32H0z"/>
+					<path class="share-icon-svg" d="M25.9 19.14a2.85 2.85 0 0 1 .1.86 2.64 2.64 0 0 1-.2.8 1.82 1.82 0 0 1-.42.67 2.1 2.1 0 0 1-.64.42 1.65 1.65 0 0 1-1.65-.2 2 2 0 0 1-.88-1.53 2.57 2.57 0 0 1 0-.6 3.24 3.24 0 0 1 .15-.57 3.17 3.17 0 0 0 .14-.37 1.42 1.42 0 0 0 .07-.4 1.58 1.58 0 0 0-.1-.7 1.52 1.52 0 0 0-.4-.53 1.67 1.67 0 0 0-.36-.28 2.94 2.94 0 0 0-.4-.2 3.58 3.58 0 0 0-2.44 0l-.34.18a1.65 1.65 0 0 0-.3.2 1.42 1.42 0 0 0-.47.68 1.6 1.6 0 0 0 0 .83 1.22 1.22 0 0 0 .16.44 2.18 2.18 0 0 1 .2 1.47 2.07 2.07 0 0 1-.77 1.25 1.62 1.62 0 0 1-.56.3 2.48 2.48 0 0 1-.62.13h-.48a1.54 1.54 0 0 1-.48-.12 2.2 2.2 0 0 1-.84-.64 2.17 2.17 0 0 1-.42-1 1.7 1.7 0 0 1 0-.7 2.58 2.58 0 0 1 .22-.66 1.8 1.8 0 0 0 .18-.56 1.56 1.56 0 0 0 0-.6 1.15 1.15 0 0 0-.15-.37 1.68 1.68 0 0 0-.32-.33 2.4 2.4 0 0 0-.42-.3 1.8 1.8 0 0 0-.46-.2 3.8 3.8 0 0 0-1.28-.18 3.3 3.3 0 0 0-1.26.32.84.84 0 0 0-.22.12l-.24.16a1.54 1.54 0 0 0-.53.73 1.6 1.6 0 0 0 0 .93 1.47 1.47 0 0 0 .06.23 1.84 1.84 0 0 0 .1.24 2.33 2.33 0 0 1 .17.9 2.55 2.55 0 0 1-.2.94 1.94 1.94 0 0 1-.74.85 1.7 1.7 0 0 1-1 .26 1.57 1.57 0 0 1-.7-.2 2.45 2.45 0 0 1-.6-.48 1.6 1.6 0 0 1-.33-.56 2.94 2.94 0 0 1-.23-.62 3 3 0 0 1 0-.55 2.06 2.06 0 0 1 .1-.54 1.2 1.2 0 0 1 .12-.35 1.37 1.37 0 0 1 .22-.28l.3-.28a2 2 0 0 1 .36-.22 1.82 1.82 0 0 1 .4-.15 1.4 1.4 0 0 1 .44 0 1.27 1.27 0 0 0 .35 0 1.17 1.17 0 0 0 .32-.1.94.94 0 0 0 .38-.28 1.06 1.06 0 0 0 .2-.4 1.3 1.3 0 0 0 .14-.42 3.4 3.4 0 0 0 0-.44v-.24q0-.37-.06-.73t-.1-.7a.12.12 0 0 0 0-.08.12.12 0 0 1 0-.08 2.6 2.6 0 0 1-.18-.9 4.14 4.14 0 0 1 0-.63 4.26 4.26 0 0 1 .1-.63 3.45 3.45 0 0 1 .8-1.35 2.83 2.83 0 0 1 1.3-.74 2.57 2.57 0 0 1 1.7.12 2.9 2.9 0 0 1 1.35 1.15l.12.18.14.18.33.3.32.34a1 1 0 0 0 .27.22 1.2 1.2 0 0 0 .33.13 1.17 1.17 0 0 0 .5 0 1.15 1.15 0 0 0 .46-.22l.23-.2.2-.23.27-.3.26-.3v-.14a3.08 3.08 0 0 1 .88-.92 2.7 2.7 0 0 1 3.2.13A2.93 2.93 0 0 1 23 12.63a4.53 4.53 0 0 1 0 .9 3.67 3.67 0 0 1-.17.86 1.9 1.9 0 0 0-.06.28v.28a5.7 5.7 0 0 0-.08.66 5.8 5.8 0 0 0 0 .66 1.65 1.65 0 0 0 0 .24v.24a1.3 1.3 0 0 0 .33.66 1.13 1.13 0 0 0 .63.3h.38a1.88 1.88 0 0 1 1.07.27 1.66 1.66 0 0 1 .8 1.17zM16 17.68a1.73 1.73 0 0 0 1.44-.68 2.25 2.25 0 0 0 .56-1.43 2.18 2.18 0 0 0-.6-1.5 1.83 1.83 0 0 0-1.4-.63 1.8 1.8 0 0 0-1.4.63 2.16 2.16 0 0 0-.56 1.5A2.3 2.3 0 0 0 14.6 17a1.7 1.7 0 0 0 1.4.68z"/>
+				</svg>
+			</a>
+		</li>
+	</ul>
+</div>
+
+ 
+  <div class="nav-section account">
+    <ul>
+        <li>
+            <a href="/component/services/"><span class="ico ico-account"></span> Reader's services</a>
+        </li>
+        <li>
+            <a href="/component/services/?label=toc_email"><span class="ico ico-alert"></span> Email-alert</a>
+        </li>
+    </ul>
+</div>
+
+                        </nav>
+                        </div>
+                                          
+                    
+
+
+
+                                                            <div class="clear"></div>
+                  </div>
+                    
+               
+                </div>
+
+                                     
+
+                
+
+                                  
+        </main>
+
+        <footer>
+                  <div class="footer-journal">
+            <div class="wrap">
+              <div class="footer-infos">
+              <h3>MATEC Web of Conferences</h3>
+              
+
+<p>eISSN: 2261-236X
+</p>
+
+
+
+</div>
+              <div class="footer-social">
+
+<ul class="ico-social">
+<!--li><a class="twitter" title="Follow us on twitter" target="_blank" href="https://twitter.com/edpsciences"></a></li>
+<li><a class="linkedin" title="Follow us on LinkedIn" target="_blank" href="https://www.linkedin.com/company/edp-sciences"></a></li>
+<li><a class="google" title="Follow us on Google+" target="_blank" href="https://plus.google.com/+EdpsciencesOrg"></a></li-->
+<li><a class="rss" title="Access our RSS feeds" href="/component/rsslist/?task=journal"></a></li>
+<li><a class="alert" title="Register to the journal email alert" href="/component/services/?label=toc_email"></a></li>
+</ul>
+</div>
+            </div>
+          </div>
+          <div>
+            
+          </div>
+          <div class="footer-edp">
+            <div class="wrap">
+                              <a href="https://www.edpsciences.org/" target="_blank" title="EDP Sciences website"><img src="/templates/source/images/logos/logo_edp_fff.svg" alt="EDP Sciences"></a>
+                                            
+<ul class="menu">
+<li class="item-171"><a href="/mentions-legales" >Mentions légales</a></li><li class="item-190"><a href="https://www.edpsciences.org/en/contact-us/contact-form?subject=MATEC%20Web%20of%20Conferences&amp;contactid=5" >Contacts</a></li><li class="item-401"><a href="https://www.edpsciences.org/en/privacy-policy" target="_blank" >Privacy policy</a></li></ul>
+
+                          </div>
+          </div>
+                        <div class="footer-ptf">
+               <div class="wrap">
+                <div class="position-footer-ptf"></div>
+                <div class="link-vfp"><a href="https://www.vision4press.org" target="_blank">A Vision4Press website</a></div>
+               </div>
+               </div>
+                </footer>
+    </div>
+    <script src="/templates/source/js/mmenu2/dist/js/jquery.mmenu.all.min.js"></script>
+    <script src="/templates/template1/js/script.js"></script>
+    
+<span class="translations" data-name="separator_and" data-value="and"></span>
+<span class="translations" data-name="select_all" data-value="Select all"></span>
+<span class="translations" data-name="unselect_all" data-value="Unselect all"></span>
+<span class="translations" data-name="show_short_summary" data-value="Show short summary"></span>
+<span class="translations" data-name="hide_short_summary" data-value="Hide short summary"></span>
+<span class="translations" data-name="cookie_text" data-value="By using this website, you agree that EDP Sciences may store web audience measurement cookies and, on some pages, cookies from social networks. <a href='/component/cookie_policy/'>More information and setup</a>"></span>
+<span class="translations" data-name="cookie_accept_title" data-value="Click to accept all cookies and close this notification"></span>
+<span class="translations" data-name="cookie_refuse_title" data-value="Click to refuse optionnal cookies and close this notification"></span>
+<span class="translations" data-name="cookie_accept_text" data-value="Yes"></span>
+<span class="translations" data-name="cookie_refuse_text" data-value="No"></span>
+<span class="translations" data-name="loading" data-value="Loading author..."></span>
+<span class="translations" data-name="view_fullscreen" data-value="Click to view fullscreen"></span>
+<span class="translations" data-name="hide_fullscreen" data-value="Click anywhere to hide the fullscreen overlay"></span>
+<span class="translations" data-name="play_movie" data-value="Click to play the movie"></span>
+<span class="translations" data-name="cookie_is_mobile" data-value=""></span>
+<span class="translations" data-name="add_to_cart" data-value="Add to cart"></span>
+<span class="translations" data-name="remove_from_cart" data-value="Remove from cart"></span>
+<span class="translations" data-name="loading_cart" data-value="Loading..."></span>
+<span class="translations" data-name="empty_cart" data-value="Your cart is empty"></span>
+<span class="translations" data-name="terms_agreeement" data-value="You must agree the Purchase Agreement Terms and Conditions."></span>
+<span class="translations" data-name="makeref_url" data-value="/component/makeref/?task=show&amp;type=html&amp;doi="></span>
+<span class="translations" data-name="set_cart_article_status_url" data-value="/component/services/?task=set_cart_article_status"></span>
+<span class="translations" data-name="get_shopping_cart_url" data-value="/component/services/?task=get_shopping_cart_list"></span>
+<span class="translations" data-name="clear_shopping_cart_url" data-value="/component/services/?task=clear_shopping_cart"></span>
+<span class="translations" data-name="get_billing_url" data-value="/component/services/?label=ppv&amp;task=get_billing"></span>
+<span class="translations" data-name="authors_url" data-value="/component/article/?task=get_authors"></span>
+
+
+
+  <span id="google_analytics" data-domain="www.matec-conferences.org" class="hidden"></span>
+<div id="wait" style="display:none"></div>
+
+
+	<script src="/templates/source/js/cookie.js"></script>
+
+<script src="/templates/source/js/common.js"></script>
+
+</body>
+</html>

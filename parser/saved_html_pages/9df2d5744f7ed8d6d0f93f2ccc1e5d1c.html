@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(55028284, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/55028284" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./patents.css">
+    <title>ФГУП "НИИ "КВАНТ"</title>
+    <link rel="icon" href="../../assets/logo/logo.ico">
+  </head>
+  <body>
+    <header>
+      <a href="../main/main.html">
+        <img src="../../assets/logo/logo-kvant-light.svg" alt="logo">
+        <h4>ФГУП НИИ КВАНТ</h4>
+      </a>
+      <input type="checkbox" id="menuInput">
+      <label id="burger" for="menuInput">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <nav id="menu">
+        <a href="../main/main.html">О нас</a>
+        <a href="../vacancies/vacancies.html">Вакансии</a>
+        <a href="../education/education.html">Образование и наука</a>
+        <a href="../history/history.html">История</a>
+        <a href="../technology/technology.html">Проекты</a>
+        <a href="../patents/patents.html"  class="active">Патенты</a>
+        <a href="../contacts/contacts.html">Контакты</a>
+      </nav>
+    </header>
+    <div class="content">
+      <h2 id="patent" class="subheader">Лицензии и патенты</h2>
+      <span>На данный момент предприятие имеет:</span>
+      <ul class="resume">
+        <li>13 патентов на изобретения</li>
+        <li>9 патентов на полезную модель</li>
+        <li>1 патент на промышленный образец</li>
+        <li>70 свидетельств о государственной регистрации прав на программы для ЭВМ</li>
+        <li>9 секретов производства (ноу-хау)</li>
+      </ul>
+      <div class="grid patents-container"></div>
+            
+    </div>
+    <footer>
+      <div class="info">
+        <h2>О предприятии</h2>
+        <a href="../education/education.html">Образование и наука</a>
+        <a href="../history/history.html">История</a>
+        <a href="../patents/patents.html">Патенты</a>
+      </div>
+      <div class="info">
+        <h2>Соискателям</h2>
+        <a href="../vacancies/vacancies.html">Вакансии</a>
+      </div>
+      <div class="info">
+        <h2>Контакты</h2>
+        <a href="tel:+7499-745-73-02">тел.: +7 (499) 745-73-02</a>
+        <a href="mailto:info@rdi-kvant.ru">e-mail: info@rdi-kvant.ru</a>
+      </div>
+    </footer>
+    <script>
+        const patents = [
+        {
+          header: "«Кластерная система с прямой коммутацией каналов»",
+          number: "RU №2461055 С1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2461055&TypeFile=html"
+        },
+       
+        {
+          header: "«Программный макет системы визуализации тракта данных в электронной вычислительной системе «Путь»",
+          number: "№2013614133",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2013614133&TypeFile=html"
+        },
+        {
+          header: "«Драйвер взаимодействия хост машины с ПЛИС»",
+          number: "№2013661372",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2013661372&TypeFile=html"
+        },
+        {
+          header: "«Программа организации интерфейса между пользователем и ПЛИС»",
+          number: "№2013661299",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2013661299&TypeFile=html"
+        },
+        {
+          header: "«Программа конфигурирования вычислительных модулей»",
+          number: "№2013661152",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2013661152&TypeFile=html"
+        },
+        {
+          header: "«Модуль частичной реконфигурации ПЛИС»",
+          number: "№2013661148",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2013661148&TypeFile=html"
+        },
+        {
+          header: "«Модуль реконфигурируемого вычислителя»",
+          number: "№91794",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=RUDE&DocNumber=91794&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль»",
+          number: "RU №144358  U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=144358&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемый вычислительный модуль»",
+          number: "RU №144357  U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=144357&TypeFile=html"
+        },
+        {
+          header: "«Двухпортовый модуль управления конфигурированием ПЛИС»",
+          number: "ЭВМ №2014615950",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2014615950&TypeFile=html"
+        },
+        {
+          header: "«Модуль интерфейса пользователя»",
+          number: "№2014615946",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2014615946&TypeFile=html"
+        },
+        {
+          header: "«Многофункциональный вычислительный модуль»",
+          number: "RU №150420  U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=150420&TypeFile=html"
+        },
+        {
+          header: "«Программа контроля работоспособности вычислительных модулей KVANT_MONITOR»",
+          number: "№2014661598",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2014661598&TypeFile=html"
+        },
+        {
+          header: "«Система однонаправленной передачи данных»",
+          number: "RU №156779  U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=156779&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемая вычислительная система»",
+          number: "RU №156778 U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=156778&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль с автоконфигурацией»",
+          number: "RU №156777  U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=156777&TypeFile=html"
+        },
+        {
+          header: "«Программное обеспечение системы управления виртуальными машинами»",
+          number: "№2016619279",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2016619279&TypeFile=html"
+        },
+        {
+          header: "«Программное обеспечение многосвязной коммуникационной сети»МВС-Экспресс» с топологиями звезда и кольцо»",
+          number: "№2016619280",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2016619280&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль»",
+          number: "RU №166961 U",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=166961&TypeFile=html"
+        },
+        {
+          header: "«Программные средства обработки текстовой информации больших объемов»",
+          number: "№2016663513",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2016663513&TypeFile=html"
+        },
+        {
+          header: "«Программные средства документооборота для организации и контроля проведения закупок»",
+          number: "№2016663514",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2016663514&TypeFile=html"
+        },
+        {
+          header: "«Интерфейс отображения параметров инженерной инфраструктуры машинных залов ЦОД»",
+          number: "№2016663659",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2016663659&TypeFile=html"
+        },
+        {
+          header: "«Программный агент однонаправленной передачи данных»",
+          number: "№2017610698",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017610698&TypeFile=html"
+        },
+        {
+          header: "«Программные средства конвейерной обработки неструктурированных данных»",
+          number: "№2017610915",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017610915&TypeFile=html"
+        },
+        {
+          header: "«Программный комплекс исследования криптографических преобразований»",
+          number: "№2017610916",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017610916&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемый вычислительный модуль»",
+          number: "RU №168565  U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=168565&TypeFile=html"
+        },
+        {
+          header: "«Конфигуратор»",
+          number: "№2017612044",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612044&TypeFile=html"
+        },
+        {
+          header: "«Программа балансировки сетевого трафика классифицируемых данных»",
+          number: "№2017612336",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612336&TypeFile=html"
+        },
+        {
+          header: "«Программа проверки вхождения битовых подпоследовательностей»",
+          number: "№2017612346",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612346&TypeFile=html"
+        },
+        {
+          header: "«Программа классификации по булевым комбинациям признаков»",
+          number: "№2017612368",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612368&TypeFile=html"
+        },
+        {
+          header: "«Нормализатор фактографических данных»",
+          number: "№2017612453",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612453&TypeFile=html"
+        },
+        {
+          header: "«Программный сервер фильтрации данных»",
+          number: "№2017612505",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612505&TypeFile=html"
+        },
+        {
+          header: "«Программа выделения признаков с помощью регулярных выражений»",
+          number: "№2017612551",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017612551&TypeFile=html"
+        },
+        {
+          header: "«Программный комплекс экспертной оценки качества защищенности объекта информатизации»",
+          number: "№2017616361",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017616361&TypeFile=html"
+        },
+        {
+          header: "«Программный комплекс автоматического выбора средств пространственного зашумления»",
+          number: "№2017616431",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017616431&TypeFile=html"
+        },
+        {
+          header: "«Программа умножения матричных многочленов»",
+          number: "№2017617561",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2017617561&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль»",
+          number: "RU №174347 U1",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPM&DocNumber=174347&TypeFile=html"
+        },
+        {
+          header: "«Программа сжатия разреженных графов»",
+          number: "№2018610328",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018610328&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль»",
+          number: "№2643622",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2643622&TypeFile=html"
+        },
+        {
+          header: "«Программа однонаправленной передачи информации с инкапсуляцией данных в UDP-пакеты»",
+          number: "№2018612906",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018612906&TypeFile=html"
+        },
+        {
+          header: "«Программа «Фильтр» »",
+          number: "№2018612907",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018612907&TypeFile=html"
+        },
+        {
+          header: "«Программа передачи данных с использованием луковичной маршрутизации»",
+          number: "№2018614022",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018614022&TypeFile=html"
+        },
+        {
+          header: "«Интерфейс разработки прикладных программ для вычислительных систем на основе СБИС»",
+          number: "№2018666076",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018666076&TypeFile=html"
+        },
+        {
+          header: "«Программа двухканальной однонаправленной передачи пакетов данных»",
+          number: "№2018666077",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018666077&TypeFile=html"
+        },
+        {
+          header: "«Визуализатор результатов моделирования работы вычислительных устройств»",
+          number: "№2018666898",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018666898&TypeFile=html"
+        },
+        {
+          header: "«Программное обеспечение «Речь»",
+          number: "№2018666899",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2018666899&TypeFile=html"
+        },
+        {
+          header: "«Программное обеспечение маршрутизатора «Рельса»",
+          number: "№2019611063",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2019611063&TypeFile=html"
+        },
+        {
+          header: "«Программа управления и контроля однонаправленной передачей данных»",
+          number: "№2019611286",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2019611286&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемая вычислительная система»",
+          number: "RU №2677363",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2677363&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль»",
+          number: "№2686004",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2686004&TypeFile=html"
+        },
+        {
+          header: "«Программные модули расчета эффектов теплового и термомеханического действия рентгеновского излучения на объекты»",
+          number: "№2019617547",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2019617547&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемая вычислительная система с многоуровневой подсистемой мониторинга и управления»",
+          number: "№2699254",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2699254&TypeFile=html"
+        },
+        {
+          header: "«Программа автоматизированного сбора и систематизации признаков компьютерных угроз из открытых источников сети Интернет»",
+          number: "№2019667080",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2019667080&TypeFile=html"
+        },
+        {
+          header: "«Программа определения шаблонов сетевого трафика»",
+          number: "№2019667081",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2019667081&TypeFile=html"
+        },
+        {
+          header: "«Программный комплекс приема-передачи данных по однонаправленному каналу»",
+          number: "№2020610020",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020610020&TypeFile=html"
+        },
+        {
+          header: "«Программное обеспечение «Расчет-Р»",
+          number: "№2020611094",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020611094&TypeFile=html"
+        },
+        {
+          header: "«RTL-описания компонентов СБИС-КПА»",
+          number: "№2020611304",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020611304&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемая вычислительная система»",
+          number: "№2713757",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2713757&TypeFile=html"
+        },
+        {
+          header: "«Автономный вычислительный модуль»",
+          number: "№2720556",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2720556&TypeFile=html"
+        },
+        {
+          header: "«Программа сбора, передачи и загрузки метрик мониторинга по однонаправленному каналу «Монитор-С»",
+          number: "№2020665788",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020665788&TypeFile=html"
+        },
+        {
+          header: "«Программа «Склад-Р» для тестирования распределенного объектного хранилища данных по программному интерфейсу S3»",
+          number: "№2020666343",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020666343&TypeFile=html"
+        },
+        {
+          header: "«Программа оценки динамики распространения информации»",
+          number: "№2020666344",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020666344&TypeFile=html"
+        },
+        {
+          header: "«HDL-описания блоков управления вычислительными ядрами специализированной СБИС»",
+          number: "№2020666750",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020666750&TypeFile=html"
+        },
+        {
+          header: "«Программа семантического анализа текстов на естественном языке»",
+          number: "№2020666831",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020666831&TypeFile=html"
+        },
+        {
+          header: "«Программа генерации текстов и отчетов на естественном языке»",
+          number: "№2020666832",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020666832&TypeFile=html"
+        },
+        {
+          header: "«Модуль интерфейса для программируемой логической интегральной схемы»",
+          number: "№2020667528",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2020667528&TypeFile=html"
+        },
+        {
+          header: "«Модуль  поточной обработки данных в ПЛИС»",
+          number: "№2021613884",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021613884&TypeFile=html"
+        },
+        {
+          header: "«Программа мониторинга состояния вычислительной системы»",
+          number: "№2021613885",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021613885&TypeFile=html"
+        },
+        {
+          header: "«Программа мониторинга состояния вычислительного модуля на ПЛИС»",
+          number: "№2021614156",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021614156&TypeFile=html"
+        },
+        {
+          header: "«Программа контроля обработки данных ПЛИС в поточном режиме»",
+          number: "№2021614155",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021614155&TypeFile=html"
+        },
+        {
+          header: "«Специализированный программно-вычислительный комплекс «Специализированное математическое и программное обеспечение»",
+          number: "№2021615641",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021615641&TypeFile=html"
+        },
+        {
+          header: "«Автономный вычислительный модуль с субмодулями»",
+          number: "RU №2748299",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2748299&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемая вычислительная система с многоуровневой подсистемой мониторинга и автоматическим управлением»",
+          number: "RU №2748454",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2748454&TypeFile=html"
+        },
+        {
+          header: "«Программа «Балансир» для автоматического распределения нагрузки контейнеров и виртуальных машин на основе очереди сообщений»",
+          number: "№2021669641",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021669641&TypeFile=html"
+        },
+        {
+          header: "«Программа детектирования команд на естественном языке»",
+          number: "№2021681579",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021681579&TypeFile=html"
+        },
+        {
+          header: "«HDL-описания компонентов вычислительного ядра»",
+          number: "№2021681831",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021681831&TypeFile=html"
+        },
+        {
+          header: "«Библиотека интерфейса для вычислительного модуля на СБИС-П»",
+          number: "№2021681832",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2021681832&TypeFile=html"
+        },
+        {
+          header: "«Программа автоматического проставления тегов для графического медиаконтента»",
+          number: "№2022612065",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2022612065&TypeFile=html"
+        },
+        {
+          header: "«Программа распознавания лиц на графическом медиаконтенте»",
+          number: "№2022613141",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2022613141&TypeFile=html"
+        },
+        {
+          header: "«Тестер-верификатор заказных СБИС»",
+          number: "RU №2777449",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2777449&TypeFile=html"
+        },
+        {
+          header: "«Многопоточная SIMD-реализация блочного преобразования данных»",
+          number: "№2022665754",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2022665754&TypeFile=html"
+        },
+        {
+          header: "«Вычислительный модуль для многозадачных вычислительных систем»",
+          number: "RU №2780169",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2780169&TypeFile=html"
+        },
+        {
+          header: "«Интерфейс взаимодействия с масштабируемым полем исполнительных устройств пользователей для ПЛИС семейства Versal Prime»",
+          number: "№2022683665",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2022683665&TypeFile=html"
+        },
+        {
+          header: "«Программа ранжирования данных на основе рекомендательной системы»",
+          number: "№2022685394",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2022685394&TypeFile=html"
+        },
+        {
+          header: "«Транслятор с языка ассемблера»",
+          number: "№2023610200",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2023610200&TypeFile=html"
+        },
+        {
+          header: "«Программа извлечения текстовой информации из видео и графического контента с низким разрешением»",
+          number: "№2023611211",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2023611211&TypeFile=html"
+        },
+        {
+          header: "«Программный комплекс управления виртуальными машинами»",
+          number: "№2023612831",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2023612831&TypeFile=html"
+        },
+        {
+          header: "«Стрела.Roslin»",
+          number: "№2023614493",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2023614493&TypeFile=html"
+        },
+        {
+          header: "«Тестер-верификатор»",
+          number: "RU №2795419",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2795419&TypeFile=html"
+        },
+        {
+          header: "«Реконфигурируемая вычислительная система»",
+          number: "RU №2798443",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2798443&TypeFile=html"
+        },
+        {
+          header: "«Интерфейс взаимодействия с масштабируемым полем исполнительных устройств пользователей для вычислительных модулей ВМ-ПЛИС»",
+          number: "№2023686662",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2023686662&TypeFile=html"
+        },
+        {
+          header: "«HDL-описание блока фильтрации данных»",
+          number: "№2024610181",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2024610181&TypeFile=html"
+        },
+        {
+          header: "«Программа оптимизации искусственных нейронных сетей»",
+          number: "№2024610180",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2024610180&TypeFile=html"
+        },
+        {
+          header: "«Подсистема «Календарь» »",
+          number: "№2024612933",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2024612933&TypeFile=html"
+        },
+        {
+          header: "«Голос»",
+          number: "№2024616148",
+          href: "https://www.fips.ru/registers-doc-view/fips_servlet?DB=EVM&DocNumber=2024616148&TypeFile=html"
+        },
+        {
+          header: "«Многофункциональный диагностический комплекс»",
+          number: "RU № 2815706",
+          href: "https://new.fips.ru/registers-doc-view/fips_servlet?DB=RUPAT&DocNumber=2815706&TypeFile=html"
+        }
+    ]
+      const container = document.querySelector('.grid');
+      patents.map(patent => {
+        const gridItem = document.createElement("div");
+        gridItem.classList.add('card');
+
+        const header = document.createElement('h4');
+        header.innerHTML = patent.header;
+        gridItem.appendChild(header);
+
+        const number = document.createElement('h5');
+        number.innerHTML = patent.number;
+        gridItem.appendChild(number);
+
+        const anchor = document.createElement('a');
+        anchor.setAttribute('href', patent.href);
+        anchor.setAttribute('target', '_blank');
+        gridItem.appendChild(anchor);
+
+        const button = document.createElement('button');
+        button.innerHTML = 'Подробнее';
+
+        const img = document.createElement('img');
+        img.setAttribute('src', '../../assets/icons/Arrow_18.svg');
+        img.setAttribute('width', '30');
+        img.setAttribute('height', '15');
+
+        button.appendChild(img);
+        anchor.appendChild(button);
+
+        container.appendChild(gridItem);
+      });
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(55028284, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/55028284" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  </body>
+</html>
